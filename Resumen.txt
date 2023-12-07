@@ -1,0 +1,286 @@
+Curso de APIs con .NET
+
+
+
+**********      INTRODUCCION      **********
+
+
+Obtendremos todos los conocimientos necesarios para crear nuestros propios APIs utilizando .NET
+
+Arrancaremos viendo el concepto de REST ó patrón de REST, ya que este es el concepto que utiliza internamente el template de API de .NET para su funcionamiento.
+
+Luego de ello analizaremos algunos aspectos de las arquitecturas dentro de las APIs, como lo es el concepto de Login, Inyección de Dependencia, Swagger, y los Middlewares, esta ultima son las bases del funcionamiento de las APIs con .NET.
+
+Posterior a ello crearemos un proyecto muy parecido a lo que sería un proyecto real utilizando 2 modelos:
+un modelo de tareas, un modelo de categorias, y una configuración de Entity Framework.
+
+Utilizaremos Entity Framework para conectarnos a una bd real. Para ello podremos optar por SQL Server y PostgresSQL.
+
+
+Una vez adquirido todos estos conocimientos, estaremos listos para crear nuestras propias APIs.
+
+Es importante tomar el curso de Entity Framework antes de tomar este curso.
+Es una librería que utilizaremos para poder conectarnos a una base de datos real y poder completar todos los ejercicios del curso.
+
+
+
+
+
+
+
+
+
+
+**********      ¿Qué es una API?      **********
+
+Application Programming Interface
+
+Es una aplicacion que nos permite crear una capa de abstracción o una interface entre una aplicacion y otra.
+
+Es un proveedor de métodos y funciones hacia otras aplicaciones.
+
+Encapsulamos una lógica dentro de una aplicación que será consumida por otra, y tiene que pasar a través de una capa de abstracción para poder realizar este consumo.
+
+Esta capa de abstraccion nos permite que la API pueda ser consumida por cualquier tipo de cliente, incluso si no está desarrollado en el mismo lenguaje de programación o con la misma tecnología. Esto es lo MAS RESALTANTE de una API, y esta es la razón por la que se utiliza tanto en la industria del desarrollo de software y es una de las cuestiones que debe saber un desarrollador backend.
+
+
+Tambien la API puede poseer capas adicionales de seguridad, autorizacion y autenticación nos permitiran determinar qué pueden ver el usuario y qué puede ejecutar cuando esté consumiendo una API.
+
+
+
+
+Arquitectura comun en una aplicacion Cliente Servidor (página 7 pdf).
+
+El cliente podría ser una aplicacion web creada en REACT en Angular o tambien una App que puede ser desarrollada en Flutter o Xamarin, o tambien podría ser una aplicacion de escritorio.
+
+Al final este cliente tendrá que consumir una API, que sería nuestro Backend o nuestro Servidor de Backend que va a tener toda la lógica que este cliente necesita y va a servir como una capa de abstracción entre el cliente y todas las acciones que nosotros queremos realizar en la base de datos.
+Esto va a permitir que nuestra aplicación sea mucho mas segura y que nosotros nos encargemos en nuestra API de hacer la gestión de todo lo que el cliente quiere hacer.
+Al final el cliente no se va a enterar que exactamente de qué está haciendo la aplicación, simplemente va a recibir notificaciones de qué lo hizo, o qué fué lo que pasó.
+
+
+Es muy importante mencionar que una API puede consumir otras APIS. De hecho esto es muy común en una aplicación real.
+
+
+Uno de los ejemplos de Api del pdf es la de Almacenamiento de archivos, como lo es la de Azure o AWS. Que nos permiten guardar archivos de texto, documentos, imágenes, videos, etc.
+La API es la que se va a encargar de realizar esta comunicación.
+
+También podemos consumir Sericios de Pagos, como por ejemplo la de PayPal o Stripe que nos van a permitir manejar los pagos y consumos que esté generando el Usuario dentro de la aplicación.
+
+También podríamos realizar una Autenticación de la API utilizando otras APIs de otros proveedores como podrian ser la API de Facebook y la API de Google. Es bastante común en aplicaciones modernas que podamos usar nuestra cuenta de Google de Facebook y otras cuentas para realizar el proceso de autenticación dentro de una aplicación.
+
+
+
+
+
+
+
+
+
+
+
+**********      ¿Qué es REST?      **********
+
+API REST es la combinación de las dos definiciones, para poder crear APIs que sigan un único estándar, que en este caso sería el estándar de Rest.
+
+REST = Representational state transfer.
+
+- Estilo de arquitectura para el diseño de interfaces web.
+Esto significa que tanto API como REST no son implementaciones o tecnologías que podamos descargar e instalar en nuestro ordenador.
+Basicamente son solo conceptos teóricos que debemos aplicar al momento en el que estemos escribiendo o estructurando nuestro proyecto.
+
+- Permite el manejo de recursos desde el lado del servidor.
+REST posee toda una serie de reglas que nosotros debemos seguir, permitiendonos manejar los recursos en todas las situaciones en las que debamos manejar o controlar recursos.
+
+- REST es muy bueno ya que nos permite obtener un alto rendimiento, una buena escalabilidad,  mucha simplicidad a la hora de codificar nuestra API y mucha confiabilidad.
+
+
+Basicamente Rest es un patrón que ya está comprobado, que funciona, y que se aplica a la gran mayoría de API que se construyen al día de hoy. 
+
+
+
+
+
+PÁGINA 11: HTTP VERBS
+
+Una de las reglas de REST es que debemos utilizar unos VERBS o unos verbos al momento en que hacemos un llamado HTTP para indicar a la API cuál es la acción que necesitamos ejecutar.
+
+Si necesitamos Obtener y Leer recursos que se encuentran dentro del Servidor, sean recursos que esten en una base de datos o en un archivo debemos utilizar el VERBO GET.
+
+Si necesitamos CREAR o realizar la inserción de un recurso de algún dato debemos utilizar el VERBO POST.
+
+Si necesitamos realizar la ACTUALIZACION DE UN REGISTRO, debemos utilizar el método PUT.
+
+Si necesitamos realizar la ACTUALIZACIÓN PARCIAL de un registro (es decir, actualizar solamente por ejemplo un campo o una columna de una tabla), utilizaremos el método PATCH.
+
+Si necesitamos ELIMINAR un Registro, haremos uso del método DELETE.
+
+Estos son los VERBOS mas utilizados para poder realizar acciones con recursos en base de datos o del lado del servidor en un API, pero existen tambien otros muy importantes.
+
+
+
+
+
+
+PÁGINA 12: Manejo de URLs
+
+Otra regla es la de manejar una URL por cada recurso que tengamos en la base de datos, esta URL nos va a permitir realzar las acciones que deseemos con este recurso, pero esta URL no puede ser dinámica, no puede cambiar y además debe indicar cuál es el recurso al que estamos accediendo.
+
+Ejemplo: /api/usuarios/1
+
+En este caso se está accediendo por ejemplo a la api, y a algun recurso como podría ser una tabla, el 1 al final indica el recurso 1 dentro de la tabla usuarios.
+
+Esta URL no va a cambiar, y es la misma url que vamos a utilizar para todas las acciones que queramos realizar con este recurso. Si queremos eliminarlo, si queremos actualizarlo, si queremos obtenerlo vamos a tener que utilizar esta misma URL.
+
+
+
+
+
+PAGINA 13 : RESPUESTAS HTTP
+
+Por ultimo, Rest posee una serie de respuestas que nosotros debemos manejar para poder notificar al usuario de lo que está ocurriendo en nuestra API. Esto también nos permite manejar un estándar porque el concepto de API no nos dice qué es lo quedemos de devolver ya que simplemente estamos interactuando una aplicacion con otra, REST nos ayuda a poder manejar un estándar para poder manejar el tema de respuestas y comunicación entre una aplicación cliente y un servidor.
+
+Tenemos diferentes respuestas que podemos manejar en una API REST:
+
+- Respuestas Informativas (100 - 199), los códigos que van desde los 100 hasta los 199.
+
+- Respuestas Satisfactorias (200 - 299), ESTAS SON LAS RESPUESTAS MAS UTILIZADAS.
+
+- Redirecciones (300 - 399)
+
+- Errores de los clientes (400 - 499), ALTAMENTE UTILIZADOS TAMBIÉN.
+
+- Errores de los servidores (500 - 599) , ALTAMENTE UTILIZADOS TAMBIÉN ya que normalmente vamos a obtener este tipo de errores si existe una mala configuracion o un error interno dentro de la API.
+
+
+Las respuestas mas utilizadas que podemos resaltar son 500 Internal Error que significa que ocurri+o un error interno dentro del Servidor, generalmente es un error no controlado, es decir, es algo que no debió pasar en el servidor pero que de alguna manera nunca se controló y nos devuelve un error y no puede controlar la accion que le estemos solicitando a nuestra API.
+
+
+
+200 es el codigo exitoso, es el mas utilizado y es lo que esperamos que siempre ocurra dentro de una aplicacion indicando que todo esta funcionando bien.
+
+
+
+NOT FOUND significa que el recurso no fue encontrado. Es bastante común también .
+
+
+
+201 que indica que se ha creado un recurso, tambien es altamente utilizado.
+
+
+204 el no content, que todo se realizó bien pero que no hay contenido para devolver. Esto se utiliza cuando se realiza tareas de actualizacion o cuando se realizan cambios dentro del servidor.
+
+
+
+
+
+
+
+
+
+
+
+**********      Creando tu primera API con .NET      **********
+
+Comandos desde la consola:
+
+Una vez situado en la carpeta que vamos a utilizar para el proyecto podemos ejecutar los siguientes comandos:
+
+° dotnet new = crea un proyecto de .NET basado en una plantilla.
+
+Con este comando podemos crear diferentes proyectos, no solo APIs, sino tambien PROYECTOS DE CONSOLA, PROYECTOS PARA WINDOWS, PROYECTOS DE BLAZOR.
+
+
+° dotnet new --list = para visualizar todas las planillas.
+
+Desglozandose el listado, el comando que vamos a utilizar es "webapi"
+
+Tambien existe otro diferente que es el "web" que permite crear una web api utilizando mínima la api, que es un concepto nuevo que posee .NET, sin embargo el TEMPLATE Clásico y el más completo es el "webapi"
+
+
+Procedemos, desde la consola, a ejecutar el comando "dotnet new webapi" para que se cree nuestro proyecto.
+
+
+Luego si deseamos abrir el proyecto con VScode desde la terminal podemos hacerlo con "code ." siempre y cuando estemos situados en el directorio correcto.
+
+
+En la próxima sesión utilizaremos POSTMAN para poder analizar el ENDPOINT o la URL que trae por defecto la API, que sería como el DEMO que trae la API para que podamos jugar con ella y entender cómo funciona.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
