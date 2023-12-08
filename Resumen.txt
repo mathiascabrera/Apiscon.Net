@@ -273,6 +273,120 @@ Y volvemos a darle click a SEND.
 
 **********      Análisis del Template para APIs de .NET      **********
 
+Veamos un concepto fundamental "MVC"
+
+Estas siglas significan:
+
+MODEL = Datos
+VIEW = Interfaz de usuario
+Controller = Lógica
+
+Es un Modelo Arquitectónico, MODELO VISTA CONTROLADOR ó MODEL CONTROLLER VIEW.
+
+Es altamente utilizado dentro del desarrollo de software.
+
+Nos ayuda a poder realizar una separacion de responsabilidades dentro de la estructura de nuestro proyecto.
+
+La idea es crear "modelos" que son clases en la POO que nos permitiran almacenar los datos que nosotros en ese momento estemos manejando o que el usuario esté visualizando en ese momento a través de la VIEW.
+
+La VIEW es esa Interfaz que va a tener nuestra aplicación para entenderse o comunicarse con el usuario.
+
+El CONTROLLER maneja toda la lógica que se pueda presentar dentro de la interacción del usuario con la vista, por ejemplo al hacer click en un botón de "Guardar", cada una de las interacciones seran manejadas por los controladores.
+
+
+ESTE PATRÓN ESTÁ MUY LIGADO AL DESARROLLO WEB ó APLICACIONES WEB.
+
+
+
+En el caso del Template WEBAPI es eliminar la parte de la vista, es decir pasamos de MVC a MC:
+MODEL (para almacenar los datos) y CONTROLLER (para manejar la lógica).
+
+Recordemos que una API no tiene una interfaz de usuario, simplemente es una capa abstracta que permite que interactuemos con ella a través del patrón REST.
+
+Lo común es que otros clientes, u otras APIS consuman los datos o ejecuten las diferentes funcionalidades que posee nuestra API.
+
+
+
+
+VEAMOS LA ESTRUCTURA DEL PROYECTO QUE TENEMOS EN VISUAL STUDIO
+
+"Todos los controladores deben almacenarse en la carpeta CONTROLLERS"
+
+Por defecto, dentro de esta carpeta viene una clase llamada "WeatherForecastController"
+
+Si nuestro proyecto tiene que manejar usuarios, procesos, areas, empleados, productos etc, lo que debemos realizar es crear un controlador para cada uno de esos modelos.
+
+CADA MODELO CREADO DEBE TENER SU PROPIO CONTROLADOR.
+
+Por ejemplo el MODELO WeatherForecast.cs tiene su CONTROLLADOR "WeatherForecastController.cs"
+
+
+El modelo WeatherForecast.cs básicamente es una clase que posee cada una de las propiedades que necesita el demo para poder alojar la información, y WeatherForecastController.cs es el encargado de manejar toda la lógica poder devolver o retornar los datos y exponer todas las funciones que afecten de alguna manera el modelo WeatherForecast.cs
+
+
+Es muy importante, para los controladores, agregar al final del nombre "Controller" como lo tenemos en el ejemplo: WeatherForecastController.cs
+
+
+Además de esto, los controladores, deben heredar de ControllerBase que nos brinda todas las funciones que necesitamos para poder realizar todos los códigos de respuesta que normalmente se debería de responder, utilizando el patrón REST.
+
+
+Otro archivo importante es la del proyecto con extensión .csproj
+
+El TargetFramework es donde se define la versión del Framework
+
+El SDK para el caso de WEBAPI siempre será web
+
+El SDK posee una serie de librerías base que necesitamos para trabajar con alguna tecnología en particular.
+En este caso la tecnología que vamos a manejar es ASP.NET que nos permite manejar requerimientos o peticiones http que son las que utilizan las Apis Rest.
+
+el siguiente código:
+<ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.10" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+Es un paquete que nos permite trabajar con ASP.NETCORE, y es el paquete que contiene la documentacion de "Swagger" que ya veremos qué es y para qué sirve, pero básicamente nos ayuda a generar la documentación de nuestra API.
+
+
+
+
+PROGRAM.cs es el archivo que posee toda la configuración del proyecto y la forma en la que se va a ejecutar.
+
+
+
+
+Por último, tenemos los archivos "appsettings.json" que por defecto crean el "appsettings.Development.json" y el"appsettings.json" que contiene todas las opciones para poder configurar nuestro proyecto.
+
+
+Normalmente, en "appsettings.Development.json" vamos a almacenar la conexion a una base de datos, contraseñas, tockens de acceso para servicios en la nube, etc.
+
+
+
+Luego dentro de la carpeta "Properties" se encuentra el archivo "launchSettings.json" que contiene como se va a ejecutar la API.
+
+Siempre por defecto tiene dos perfiles: "webapi" y "IIS Express"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
