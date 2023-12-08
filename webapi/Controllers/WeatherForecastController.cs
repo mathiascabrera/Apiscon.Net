@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 
+/* Esto es un demo del método GET */
+
 namespace webapi.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("[controller]")]/* Esto define la ruta de cómo podemos consumir este Endpoint. La ruta recibe el mismo nombre que el controlador: WeatherForecastController*/
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]
@@ -18,6 +20,7 @@ public class WeatherForecastController : ControllerBase
         _logger = logger;
     }
 
+    /* Se crea un Endpoint al que le llamaremos GetWeatherForecast, el cual retorna un rango de informacion relacionada a la fecha, a la temperatura y un resumen de datos aleatorios. */
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {

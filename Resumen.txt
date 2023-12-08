@@ -215,6 +215,72 @@ En la próxima sesión utilizaremos POSTMAN para poder analizar el ENDPOINT o la
 
 
 
+**********      Consumiendo API desde Postman      **********
+
+
+
+15 extensiones indispensables para programar con C# y .NET Core
+
+https://marketplace.visualstudio.com/items?itemName=jolhe.csharp-netcore-extensionpack
+
+En esta clase ejecutaremos el proyecto que hemos creado anteriormente y utilizaremos POSTMAN para comprobar el funcionamiento de nuestra API.
+
+
+Primeramente abrimos una nueva terminal para ejecutar el proyecto
+
+ejecutamos el comando dotnet run
+
+Al ejecutarlo nos saldrá los links a los cuales podremos consumir nuestra API.
+
+Copiamos uno de los links (preferentemente la de https - con certificados seguros), y nos dirigimos a Postman.
+
+Al abrir Postman agregamos un nuevo "Request" con el boton de "+".
+
+Primero se determina qué acción o verbo realizar sobre la API, en este caso vamos a utilizar GET.
+
+Luego pegamos el link que copiamos de VSCODE.
+
+Una vez ingresada la direccion le damos click a SEND.
+
+Al presionar SEND salta en STATUS "404 Not Found"
+
+Lo cual quiere decir que la ruta a la que queremos acceder no posee ningún contenido, o no posee ninguna acción dentro de la API.
+
+Por lo que debemos fijarnos dentro de la API cuál es la ruta a la que debemos acceder para realizar alguna acción.
+
+
+Entonces volvemos a VSCODE.
+
+Revisamos la carpeta "Controllers", esta carpeta contiene todas las clases que realizan el manejo de los request dentro de la API.
+
+Alli nos fijamos en la instruccion ROUTE , para saber qué ruta utilizar para consumir el Endpoint.
+En este caso recibe el mismo nombre del controlador "WeatherForecast", por lo que volvemos a Postman y a la direccion que ya habiamos copiado anteriormente le agregamos una barra y el nombre de la ruta ("WeatherForecast").
+
+Quedando, por ejemplo : http://localhost:5087/WeatherForecast
+
+Y volvemos a darle click a SEND.
+
+
+
+
+
+
+
+
+
+
+
+
+**********      Análisis del Template para APIs de .NET      **********
+
+
+
+
+
+
+
+
+
 
 
 
