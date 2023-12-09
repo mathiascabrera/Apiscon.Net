@@ -6,7 +6,10 @@ using Microsoft.AspNetCore.Mvc;
 namespace webapi.Controllers;
 
 [ApiController]
-[Route("[controller]")]/* Esto define la ruta de cómo podemos consumir este Endpoint. La ruta recibe el mismo nombre que el controlador: WeatherForecastController*/
+/* [Route("[controller]")] *//* Esto define la ruta de cómo podemos consumir este Endpoint. La ruta recibe el mismo nombre que el controlador: WeatherForecastController*/
+
+/* Nueva ruta */
+[Route("api/[controller]")]
 public class WeatherForecastController : ControllerBase
 {
     private static readonly string[] Summaries = new[]
@@ -38,6 +41,14 @@ public class WeatherForecastController : ControllerBase
 
     /* Se crea un Endpoint al que le llamaremos GetWeatherForecast, el cual retorna un rango de informacion relacionada a la fecha, a la temperatura y un resumen de datos aleatorios. */
     [HttpGet(Name = "GetWeatherForecast")]
+
+    /* Enrutamiento a nivel de Método: */
+    [Route("Get/weatherforecast")]
+    /* Multiples rutas para una misma acción */
+    [Route("Get/weatherforecast2")]
+
+    /* Enrutamiento con palabra dinámica: */
+    [Route("[action]")]/* De esta forma podemos utilizar el nombre del método para realizar el llamado del Endpoint. */
     public IEnumerable<WeatherForecast> Get()
     {
         return ListWeatherForecast;

@@ -498,6 +498,81 @@ Para el DELETE, desde Postman, utilizamos la url "http://localhost:5087/WeatherF
 
 
 
+**********      Manejo de Rutas      **********
+
+
+Aprendamos un poco mas respecto del manejo de las rutas utilizando el controlador que viene por defecto "WeatherForecastController".
+
+Este código:
+[Route("[controller]")]
+es el que nos permite definir el enrutamiento de nuestro Controlador.
+
+
+el [controller] define que es una ruta dinámica, si cambia el nombre del Controlador, entonces la ruta también se va a modificar.
+
+
+Tambien podríamos agregar caracteres que sean estáticos, como por ejemplo:
+
+[Route("api/[controller]")]
+
+De manera que en este caso api queda fijo y el nombre dinámico del controlador para poder armar la ruta y acceder a los recursos.
+
+
+Ahora abrimos una nueva terminal y ejecutamos "dotnet run", copiamos la url.
+
+Si nos vamos a Postman e intentamos volver a ejecutar el GET de la clase anterior (sin cambiar nada), va a devolver error (404 Not Found), esto se debe a que la ruta para acceder al controlador ya no es la misma.
+
+Antes era : http://localhost:5087/WeatherForecast
+
+Mientras que ahora es : http://localhost:5087/api/WeatherForecast
+
+
+
+Asi como podemos realizar el enrutamiento a nivel de Controlador, también podemos hacerlo a nivel de las acciones o métodos dentro del Controlador.
+
+Por ejemplo al verbo GET podemos agregarle la ruta:
+[Route("Get/weatherforecast")]
+
+en este caso estamos especificando que la ruta dentro del Controlador ("api/[controller]"), tenemos que agregarle "Get/weatherforecast" para poder acceder al método GET.
+
+Ejecutamos el dotnet run y verificamos esto en Postman.
+
+
+Al irnos a Postman y ejecutamos el Verbo GET con la url http://localhost:5087/api/WeatherForecast va a funcionar igual ya que es el único método GET del Controlador.
+
+Aún así si ejecutamos "http://localhost:5087/api/WeatherForecast/Get/weatherforecast" con el enrutamiento que recién definimos, también va a funcionar.
+
+
+
+
+Podemos tener múltiples rutas para una acción.
+Por ejemplo, recien creamos una ruta para el Verbo GET (  [Route("Get/weatherforecast")] )
+Ahora podemos agregar una ruta adicional:   [Route("Get/weatherforecast2")]
+
+
+
+
+También podemos utilizar una PALABRA DINÁMICA a la hora de enrutar acciones.
+
+Para ello utilizamos la palabra [action]. Para los controladores utilizamos [controller].
+
+Esto nos permite utilizar el nombre que tenga el método para realizar el llamado del endopoint.
+
+De esta forma en Postman el GET se puede ejecutar de las siguientes maneras:
+
+http://localhost:5087/api/WeatherForecast/Get/weatherforecast
+
+http://localhost:5087/api/WeatherForecast/Get/weatherforecast2
+
+http://localhost:5087/api/WeatherForecast/Get
+
+Si cambiamos el nombre del metodo GET (desde VSCODE), entonces desde Postman tambien va a cambiar.
+
+
+link ENRUTAMIENTO DE ATRIBUTOS : https://learn.microsoft.com/en-us/aspnet/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2
+
+
+
 
 
 
