@@ -1,3 +1,4 @@
+using System.Security.Cryptography.X509Certificates;
 using Microsoft.AspNetCore.Mvc;
 
 /* Esto es un demo del método GET */
@@ -15,21 +16,48 @@ public class WeatherForecastController : ControllerBase
 
     private readonly ILogger<WeatherForecastController> _logger;
 
+    /* Creamos una coleccion estatica */
+    private static List<WeatherForecast> ListWeatherForecast = new List<WeatherForecast>();
+
+    /* Constructor:  */
     public WeatherForecastController(ILogger<WeatherForecastController> logger)
     {
         _logger = logger;
+        /* El método Any devuelve un booleano, determina si tiene elementos u registros. En este caso en la condicion del if es si no tiene ningún registro. */
+        if (ListWeatherForecast == null || !ListWeatherForecast.Any())
+        {
+            ListWeatherForecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+        .ToList();
+        }
     }
 
     /* Se crea un Endpoint al que le llamaremos GetWeatherForecast, el cual retorna un rango de informacion relacionada a la fecha, a la temperatura y un resumen de datos aleatorios. */
     [HttpGet(Name = "GetWeatherForecast")]
     public IEnumerable<WeatherForecast> Get()
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        return ListWeatherForecast;
+
+    }
+
+    /* Metodo POST: */
+    [HttpPost]
+    public IActionResult Post(WeatherForecast weatherForecast)
+    {
+        ListWeatherForecast.Add(weatherForecast);
+        return Ok();
+    }
+
+    /* Metodo DELET: */
+    [HttpDelete("{index}")]
+    public IActionResult Delete(int index)
+    {
+        ListWeatherForecast.RemoveAt(index);
+        return Ok();
+
     }
 }

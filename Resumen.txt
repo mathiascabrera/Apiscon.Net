@@ -378,6 +378,134 @@ Siempre por defecto tiene dos perfiles: "webapi" y "IIS Express"
 
 
 
+**********      Atributos para verbos HTTP      **********
+
+¿Cómo podemos utilizar los verbos http dentro de nuestro proyecto?
+
+Para realizar esto utilizaremos los Atributos que existen dentro de .NET
+
+Nos permiten marcar en una función cuál es el verbo que queremos utilizar.
+
+
+Vayamos para el código, lo primero que vamos a realizar es el método POST (para poder agregar un registro), en el archivo "WeatherForecastController.cs".
+
+
+
+Alli creamos una nueva propiedad a la clase :
+
+private static List<WeatherForecast> ListWeatherForecast = new List<WeatherForecast>();
+
+
+
+
+Luego en el constructor de la clase le asignamos una serie de registros:
+
+
+public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    {
+        _logger = logger;
+        /* El método Any devuelve un booleano, determina si tiene elementos u registros. En este caso en la condicion del if es si no tiene ningún registro. */
+        if (ListWeatherForecast == null || !ListWeatherForecast.Any())
+        {
+            ListWeatherForecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+            {
+                Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                TemperatureC = Random.Shared.Next(-20, 55),
+                Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            })
+        .ToList();
+        }
+    }
+
+
+
+
+
+Al http get lo modificamos, ahora va a retornar la lista entera pero ya creada, a diferencia de la anterior, que por cada vez que de ejecutaba el método GET se creaban los registros aleatorios (Randoms), y luego los retornaba.
+
+Asi quedó luego de las modificaciones:
+
+[HttpGet(Name = "GetWeatherForecast")]
+    public IEnumerable<WeatherForecast> Get()
+    {
+        return ListWeatherForecast;
+
+    }
+
+
+
+
+
+Tambien creamos los métodos para POST y DELETE.
+
+
+    /* Metodo POST: */
+    [HttpPost]
+    public IActionResult Post(WeatherForecast weatherForecast)
+    {
+        ListWeatherForecast.Add(weatherForecast);
+        return Ok();
+    }
+
+    /* Metodo DELET: */
+    [HttpDelete]
+    public IActionResult Delete(int index)
+    {
+        ListWeatherForecast.RemoveAt(index);
+        return Ok();
+
+    }
+
+
+
+
+
+Luego abrimos una nueva terminal y ejecutamos el proyecto.
+
+Ejecutamos dotnet run
+copiamos la url
+
+Luego nos dirigimos a Postman, agregamos una nueva ventana, pegamos la url con el verbo POST, le damos click a Body / raw y en vez de "Text" que viene por defecto, elegimos JSON, que es el formato por el cual vamos a pasar los datos.
+
+ESTA ES LA MANERA MÁS COMÚN DE PASAR LOS DATOS, ya que el formato JSON es el estándar.
+
+Copiamos un fragmento del JSON que habiamos ejecutado en la ventana anterior en POSTMAN.
+
+Por ejemplo este fragmento de JSON :
+
+ {
+        "date": "2023-12-09",
+        "temperatureC": -14,
+        "temperatureF": 7,
+        "summary": "Warm"
+    }
+
+
+
+
+Para el DELETE, desde Postman, utilizamos la url "http://localhost:5087/WeatherForecast/1" en donde el 1 es el numero del indice que deseamos eliminar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
