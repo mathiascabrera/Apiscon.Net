@@ -585,6 +585,90 @@ link ENRUTAMIENTO DE ATRIBUTOS : https://learn.microsoft.com/en-us/aspnet/web-ap
 
 
 
+**********      Minimal API vs. Web API      **********
+
+Son dos Templates que nos permite utilizar .NET
+
+El Minimal API se lanzó recientemente 
+
+- Nueva plantillacon un estilo minimalista. (Se utiliza una mínima cantidad de archivos para construir la API).
+- Utiliza las últimas mejoras de C# y .NET para disminuir las líneas de código.
+- Facilita la curva de aprendizaje de APIs en .NET.
+
+
+
+Abrimos la terminal, creamos un directorio y dentro de él ejecutamos el comando "dotnet new web" para la creación del template.
+
+
+Abrimos el directorio creado en VSCode.
+
+Lo primero que se puede apreciar es que la carpeta de Controllers ya no existe.
+
+
+En el Program.cs se han reducido las líneas de código y las configuraciones.
+
+Dentro del Program.cs la siguiente linea:
+
+app.MapGet("/", () => "Hello World!");
+
+es la manera en la que mapear la API.
+
+
+En la WEBAPI teníamos que crear un Controlador y utilizar los atributos para realizar los POSTs, el GET, etc, en este template realizamos el mapeo utilizando funciones.
+
+Por ejemplo la función que viene por defecto:
+
+app.MapGet("/", () => "Hello World!");
+
+Realiza un GET.
+
+Para realizar un POST podemos realizar lo siguiente:
+
+app.MapPost()
+
+Para Delete:
+
+app.MapDelete()
+
+
+Todo desde el archivo Program.cs
+
+
+
+
+El MinimalApi esta preparado para proyecto pequeños/simples, ya cuando el proyecto sea grande, es decir, posea varios Endpoints,  lo ideal es utilizar el Template que vimos en clases anteriores, la WEBAPI.
+
+
+
+
+CARACTERÍSTICAS MINIMAL API
+
+- Utiliza mapeo de rutas con funciones.
+- Orientado a proyectos pequeños, demos, microservicios y Azure functions.
+- Complejo de escalar en proyectos de alta complejidad. El Program.cs va a crecer exponencialmente.
+
+
+
+CARACTERÍSTICAS WEBAPIs
+
+- Utiliza modelo MVC para estructurar el código. Sin utilizar la Vista (V), se crean Controladores, Modelos, dentro de los Controladores se crean las acciones que se necesitan.
+- Se puede utilizar para proyectos de cualquier tamaño.
+- Más sencillo de escalar.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
