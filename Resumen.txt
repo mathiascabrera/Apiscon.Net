@@ -672,6 +672,61 @@ CARACTERÍSTICAS WEBAPIs
 
 
 
+**********      ¿Qué son los Middlewares?      **********
+
+- Es una serie de instrucciones de código que se agregan al ciclo de vida de una petición HTTP.
+  Ya hemos realizado peticiones GET, POST. Cada vez que realizamos una petición, lo que sucede es que la petición va a ingresar en una línea de diferentes MIDDLEWARES que van afectar de alguna manera esa petición, van a realizar el procesamiento debido para devolver lo que el usuario está esperando.
+Basicamente esto es lo que realizan los Middlewares, un tratamiento desde que inician los request hasta que devuelvan un resultado, ya sea un simple OK o información proveniente de la base de datos.
+
+- Provee una ejecución de peticiones a través de capas.
+  Esto nos permite entender muy bien cuál es la línea de tiempo que va a tener el Request desde su inicio hasta su fin, de esta manera podemos saber dónde queremos crear el Middleware o agregarlo para poder realizar ese cambio que buscamos dentro del Request.
+
+- Facilitan la implementación de interceptores y filtros sobre las peticiones en una API.
+  Con los Middlewares se facilita la visualización de la secuencia de comandos que se ejecutan por cada petición.
+  A su vez podemos implementar Custom Middleware, es decir, Middlewares personalizados con el código que nosotros necesitemos para poder interceptar un Request y agregar algún comportamiento extra.
+
+
+
+
+
+FUNCIONAMIENTO DE UN MIDDLEWARE:
+
+Cada vez que se realiza un Request, este va a tener que pasar por todas las líneas de Middlewares que posee .NET.
+A estas líneas de Middlewares se les llama Pipelines. Esto indica que va haber una secuencia de comandos que se deben ejecutar uno tras otro para poder completar 1 CICLO. Para este caso sería EL CICLO DE VIDA DEL REQUEST, desde que se incia hasta que responde.
+
+
+
+El Orden de los Middlewares es MUY IMPORTANTE, ya que se deben ejecutar uno después del otro.
+
+Es muy probable que exista una dependencia entre lo que realizó un Middleware anteriormente y lo que realizará el siguiente.
+
+
+
+Una de las preguntas más frecuentes en las entrevistas laborales de .NET es en qué orden deben ir los Middlewares ó dónde se ubican los Custom Middlewares, deben estar antes del Middleware de Endpoints y después del Middleware de Autenticación y Autorización.
+Este orden siempre se debe respetar ya que podríamos obtener comportamientos extraños o un mal manejo de las peticiones.
+
+
+
+
+Procedemos a abrir nuestro proyecto en VSCODE.
+
+Los Middlewares estan dentro del Program.cs
+
+Una vez escrito el Middleware "app.UseWelcomePage();" hay que abrir una nueva terminal y ejecutar el proyecto.
+Ejecutamos dotnet run
+Copiamos la url y lo pegamos en el navegador donde nos saldrá la página de bienvenida.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

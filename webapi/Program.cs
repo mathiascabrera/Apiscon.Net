@@ -7,18 +7,22 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
+var app = builder.Build();//Después de realizar el Build de la aplicación, se pueden agregar los Middlewares a utilizar
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwagger();//Esto es un Middleware
+    app.UseSwaggerUI();//Esto es un Middleware
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection();//Esto es un Middleware
 
-app.UseAuthorization();
+//app.UseCors();
+
+app.UseAuthorization();//Esto es un Middleware
+
+app.UseWelcomePage();//este Middleare agrega una página de bienvenida cada vez que un cliente ingresa a la API.
 
 app.MapControllers();
 
