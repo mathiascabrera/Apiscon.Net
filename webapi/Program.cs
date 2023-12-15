@@ -22,7 +22,9 @@ app.UseHttpsRedirection();//Esto es un Middleware
 
 app.UseAuthorization();//Esto es un Middleware
 
-app.UseWelcomePage();//este Middleare agrega una página de bienvenida cada vez que un cliente ingresa a la API.
+//app.UseWelcomePage();//este Middleare agrega una página de bienvenida cada vez que un cliente ingresa a la API.
+
+app.UseTimeMiddelware();/* Realizamos el UseTimeMiddelware() que acabamos de crear eb Middleare/TimeMiddleware.cs */
 
 app.MapControllers();
 

@@ -734,6 +734,46 @@ Copiamos la url y lo pegamos en el navegador donde nos saldrá la página de bie
 
 
 
+**********      Creando un nuevo Middleware      **********
+
+Creamos un Middleware personalizado.
+
+En VSCODE creamos una nueva carpeta "Middleware". Dentro de ella creamos "TimeMiddleware.cs" que no es ni más ni menos que una clase.
+
+Lo que va a realizar es devolver la hora que el servidor tenga, sin importar cuál sea el Request que se esté realizando, sino simplemente se va a analizar el parámetro que venga dentro del Request.
+
+
+ El método Invoke viene por defecto en todos los Middlewares.
+
+Una vez creado Middleare/TimeMiddleware.cs y el app.MapControllers() en el Program.cs, abrimos una nueva terminal y ejecutamos "dotnet run" copiamos el http y nos dirigimos a Postman.
+
+En el método GET pegamos la url, por ejemplo https://localhost:7182?time
+estamos preguntando por el tiempo, y en el if creado en el Middleare/TimeMiddleware.cs es True por lo que retorna la hora.
+
+
+A los efectos prácticos, al realizar un proyecto real, podríamos llegar a utilizar Middlewares como por ejemplo para realizar Logins o realizar una bitácora para todos los request que se estén realizando e interceptarlos y guardar la información, o inteceptar todos los request que han tenido errores y guardarlos en algún archivo o algún servicio para luego realizar análisis. Para todo esto los Middlewares son la mejor herramienta.
+
+
+En la próxima clase aprenderemos un concepto que nos permitirá configurar todos los servicios, herramientas y demás que se utilizará dentro de nuestra aplicación para que facilmente podamos inyectarlos dentro de cada uno de los elementos o componentes que lo requieran y de esta manera poder tener un control general de todas las dependencias que posea nuestra aplicación.
+
+
+También veremos porqué es una buena práctica implementar la "inyección de dependencias" en nuestro proyecto.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
