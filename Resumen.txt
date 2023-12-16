@@ -777,6 +777,81 @@ También veremos porqué es una buena práctica implementar la "inyección de de
 
 
 
+**********      Inyección de dependencias      **********
+
+Aprenderemos a cómo podemos inyectar dependencias dentro de nuestro WebApi.
+
+La inyección de dependencias es un concepto altamente utilziados en lenguajes de programación orientados a objetos.
+
+Nos permite utilizar diferentes tipos abstractos y configurar las dependencias utilizando un inyector y de esta manera nos evitamos tener que crear un nuevo objeto o una nueva referencia del componente cada vez que lo necesitemos sino que el inyector se encargaría de pasarnos esa dependencia y podemos utilizarla directamente dentro de los componentes que lo necesitemos ya sea una clase o un controlador en el caso de una WebApi.
+
+
+Crearemos una dependencia muy sencilla y realizaremos todo el proceso desde la creación, la inyección y luego su utilización dentro de un controlador.
+
+
+
+
+Vamos para VsCode:
+
+Creamos una nueva carpeta, la vamos a llamar Services.
+
+Creamos un "HelloworldService.cs" que será una clase. Dentro de ella creamos un método que retornará el Hello World.
+
+Además vamos a crear una Interface (IHelloWorldService), que nos va ayudar a manejar un tipo abstracto que vamos a poder cambiar fácilmente luego, y nos ayudará a inyectar las dependencias.
+
+Luego realizamos la configuración del inyector para que se pueda inyectar la dependencia.
+Para ello vamos al Program, la dependencia la debemos establecer antes del "var app = builder.Build();"
+
+Podemos utilizar "AddScoped<>", el cual crea una nueva instancia, de la dependencia utilizada, a nivel de controlador o a nivel de clase, es decir, no importa que estemos inyectando varias veces y en diferentes partes esta dependencia dentro de todo el contexto del controlador, o dentro de todo el contexto de la clase, se va a inyectar la misma implementación, es decir, la misma instancia que se creó para todo este elemento .
+
+A su vez podemos utilizar "AddSingleton<>", el cual crea una única instancia de la dependencia a nivel de toda la API. No se recomienda utilizarlo ya que las dependencias se van a crear en memoria y esto podría ocasionar un problema además de no seguir la tendencia de implementar Apis que no manejen ningún tipo de estados sino que con cada Request se cree una nueva implementación o que se cree una nueva instancia de la dependencia que hemos configurado.
+
+Lo recomendado es utilizar AddTransient, o el más utilizado AddScoped, ya que normalmente se inyecta la dependencia por el constructor del controlador.
+
+
+//Cada vez que se inyecte la interface  IHelloWorldService  se va a crear un nuevo objeto de HelloWorldService internamente, es lo que va a realizar el inyector.
+builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();
+
+
+Finalmente creamos un nuevo controlador que utilice esta dependencia que acabamos de configurar.
+
+Para ello nos dirigimos a la carpeta de "Controllers", creamos un nuevo archivo "HelloWorldController.cs"
+
+
+Copiamos del "WeatherForecastController" las siguientes líneas (ya que son indispensables para crear controladores):
+
+using Microsoft.AspNetCore.Mvc;
+
+namespace webapi.Controllers;
+
+[ApiController]
+
+[Route("api/[controller]")]
+
+
+
+Otra cuestión importante es que el nombre de la clase debe finalizar con la palabra "Controller", y dicha clase heredar de "ControlBase".
+
+
+Realizamos el dotnet run y nos dirijimos a Postman.
+
+
+Utilizamos la misma url, realizamos un GET mediante "url/api/helloworld" al ejecutarlo nos va a devolver el OK y el HelloWorld desde la inyección de dependencia que establecimos mediante la interface y la clase.
+Vemos lo fácil que es crear los servicios las herramientas y todo lo que queramos dentro de nuestro proyecto, podemos inyectar todas las que necesitemos, simplemente los separamos por comas dentro del constructor y poco a poco vamos agregando cada una de las dependencias y las vamos utilizando dentro del Controlador.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
