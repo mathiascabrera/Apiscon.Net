@@ -8,7 +8,11 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Cada vez que se inyecte la interface  IHelloWorldService  se va a crear un nuevo objeto de HelloWorldService internamente, es lo que va a realizar el inyector.
-builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();
+//builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();
+
+//Realizamos la inyección de otra manera, utilizamos la "expresión Lambda"
+builder.Services.AddScoped<IHelloWorldService>(p=> new HelloWorldService());/* De esta manera podemos inyectar utilizando directamente la clase, sin embargo es ideal utilizar las interfaces, forman parte de las buenas prácticas (SOLID) */
+/* De hecho, de esta forma podríamos podríamos agregarle parámetros al constructor, cosa que de la forma en que inyectamos anteriormente no se podría hacer. */
 
 var app = builder.Build();//Después de realizar el Build de la aplicación, se pueden agregar los Middlewares a utilizar
 

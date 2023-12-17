@@ -842,6 +842,24 @@ Vemos lo fácil que es crear los servicios las herramientas y todo lo que queram
 
 
 
+Ahora vamos a ver cómo podemos inyectar las dependencias sin utilizar una Interface sino directamente con una clase, esto no es una buena práctica, pero se suele utilizar cuando se requiere una conexión a una base de datos o conexión a servicios en donde s+i es importante utilizar "Scoped" ó "Transient" y utilizar Interfaces.
+
+Vamos para VSCode, al Program.cs
+Comentamos el Services que creamos:
+builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();
+
+Tipeamos:
+builder.Services.AddScoped<IHelloWorldService>(p=> new HelloWorldService());
+
+Que es la manera de inyectar directamente por la clase, sin hacer uso de las interfaces.
+
+Luego ejecutamos dotnet run y lo probamos en Postman.
+
+
+
+
+En la siguiente clase veremos el concepto de Login, que basicamente nos permite escibir diferentes tipos de mensajes, incluyendo errores, dentro de la consola para poder realizar un monitoreo de al aplicación y poder entender qué está ocurriendo internamente, sobre todo cuando se tenga errores no controlados.
+
 
 
 
