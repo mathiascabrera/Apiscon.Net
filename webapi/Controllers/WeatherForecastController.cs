@@ -52,7 +52,7 @@ public class WeatherForecastController : ControllerBase
     [Route("[action]")]/* De esta forma podemos utilizar el nombre del método para realizar el llamado del Endpoint. */
     public IEnumerable<WeatherForecast> Get()
     {
-        _logger.LogInformation("Retornando la lista de weatherforecast");
+        _logger.LogDebug("Retornando la lista de weatherforecast");
         return ListWeatherForecast;
 
     }

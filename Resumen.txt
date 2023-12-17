@@ -935,6 +935,56 @@ logger.LogInformation("Retornando 'Hello World'.");
 
 
 
+Ahora vamos a ver cómo podemos configurar el Logger.
+
+Por defecto en "appsettings.json" hay una propiedad llamada "Logging" y podemos realizar la configuración del "LogLevel".
+
+En "appsettings.Development.json" también tenemos la misma configuración.
+
+
+
+El "LogLevel" nos dice cuál es cuál es el nivel de error que se va a mostrar por consola al momento en que la aplicación se esté ejecutando.
+
+
+Para mayor información nos dirigimos a "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0"
+
+
+Los niveles son : Trace = 0, Debug = 1, Information = 2, Warning = 3, Error = 4, Critical = 5, and None = 6. 
+
+
+Si definimos el nivel de un Log como "Information", entonces los niveles de "Debug" y "Trace" no se van a tener en cuentra al momento de mostrar por consola.
+
+Se determina qué nivel de error es el que queremos capturar.
+
+
+Normalmente en Producción se utiliza el "Error" o "Information" pero varía dependiendo de lo que se quiera capturar.
+
+
+Cuando estamos trabajando de forma local, es decir, en modo Desarrollador, se utiliza mucho "Debug" ya que nos permite registrar todos los mensajes y poder ver todo lo que está pasando internamente.
+
+
+
+Vayamos a VSCode y en nuestro "WeatherForecastController.cs" vamos a cambiar nuestro LogInformation() por LogDebug().
+
+Mientras tanto en los "appsettings.json" mantenemos el loglevel default:"Information"
+
+
+Ejecutamos el dotnet run, y vamos a Postman a probar.
+Ejecutamos el GET() desde Postman, veremos que en la Terminal de VSCode no va aparecer nada y esto se debe a que el "LogLevel" está por Default en Information en los appsettings.json; cambiamos el "Information" por "Debug" y realizamos los mismos pasos, ejecutamos el dotnet run, vamos a Postman ejecutamos el GET(), y ya en la Terminal de VSCode nos aparecerá el mensaje que hemos definido.
+
+Vemos la importancia de definir el Level si estamos en un ambiente de Desarrollo o Producción.
+
+En la próxima clase aprenderemos acerca de "Swagger", es una herramienta que nos permite implementar la documentación de nuestra API, y que en el Template que hemos utilizado para crear nuestra API, viene por defecto.
+
+No nos tendremos que instalar ninguna librería gracias a que el Template lo trae por defecto y viene incluído como una herramienta más.
+
+
+
+
+
+
+
+
 
 
 
