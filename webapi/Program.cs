@@ -5,6 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+//Acá se establece una dependencia, los servicios son las dependencias. Agrega diferentes servicios que serán utilizados por los componentes internos de la aplicación 
 builder.Services.AddSwaggerGen();
 
 //Cada vez que se inyecte la interface  IHelloWorldService  se va a crear un nuevo objeto de HelloWorldService internamente, es lo que va a realizar el inyector.
@@ -17,7 +19,7 @@ builder.Services.AddScoped<IHelloWorldService>(p=> new HelloWorldService());/* D
 var app = builder.Build();//Después de realizar el Build de la aplicación, se pueden agregar los Middlewares a utilizar
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())//La configuración del Swagger está para el ambiente de Development, es decir, para el "appsettings.Development.json", esto viene por defecto de esta manera ya que este documento no debería estar en Producción, porque si un Hacker logra ingresar a nuesta API y extraer la documentación que se encuentra en Producción va a poder conocer cómo funciona la API internamente y todos los métodos y funciones que tiene   
 {
     app.UseSwagger();//Esto es un Middleware
     app.UseSwaggerUI();//Esto es un Middleware

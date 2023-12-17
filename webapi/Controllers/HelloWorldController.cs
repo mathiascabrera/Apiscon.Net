@@ -22,7 +22,7 @@ public class HelloWorldController: ControllerBase
         helloWorldService = helloWorld;/* Recibimos por el constructor */
         logger = logger2;
     }
-
+    [HttpGet]
     public IActionResult Get()
     {
         logger.LogInformation("Retornando 'Hello World'.");

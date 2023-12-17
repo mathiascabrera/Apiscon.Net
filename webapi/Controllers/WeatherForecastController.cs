@@ -44,12 +44,12 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
 
     /* Enrutamiento a nivel de Método: */
-    [Route("Get/weatherforecast")]
+    //[Route("Get/weatherforecast")]
     /* Multiples rutas para una misma acción */
-    [Route("Get/weatherforecast2")]
+    //[Route("Get/weatherforecast2")]
 
     /* Enrutamiento con palabra dinámica: */
-    [Route("[action]")]/* De esta forma podemos utilizar el nombre del método para realizar el llamado del Endpoint. */
+    //[Route("[action]")]/* De esta forma podemos utilizar el nombre del método para realizar el llamado del Endpoint. */
     public IEnumerable<WeatherForecast> Get()
     {
         _logger.LogDebug("Retornando la lista de weatherforecast");

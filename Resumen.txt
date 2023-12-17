@@ -996,6 +996,74 @@ No nos tendremos que instalar ninguna librería gracias a que el Template lo tra
 
 
 
+**********      Documentación API con Swagger      **********
+
+Swagger viene por defecto dentro de la plantilla que utilizamos para nuestra WebAPI. 
+
+En "webapi.csproj" tenemos el paquete "Swashbuckle.AspNetCore" que posee la librería que nos permitirá poder implementar Swagger en nuestro proyecto.
+
+En la clase "Program.cs" nos encontramos con:
+
+
+builder.Services.AddSwaggerGen(); 
+Acá se establece una dependencia, los servicios son las dependencias. Agrega diferentes servicios que serán utilizados por los componentes internos de la aplicación, que en este caso son: (también están dentro del Program.cs)
+
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();//Esto es un Middleware
+    app.UseSwaggerUI();//Esto es un Middleware
+}
+
+que básicamente configuran Swagger internamente para poder desplegar una pequeña página web que que incluye toda la definición de la API. 
+
+app.UseSwagger(); intercepta la configuración general que tiene la API para poder diseñar la documentación.
+
+
+
+Vayamos a la práctica.
+
+Ejecutamos nuestro proyecto con dotnet run copiamos la url y nos dirigimos a nuestro Navegador.
+
+Pegamos la URL, pero al final le agregamos /swagger
+
+
+Si nos aparece el mensaje "Failed to load API definition."
+
+Puede ser a que se deba con la configuración de nuestra API en cuanto a rutas, ya que Swagger utiliza un estándar conocido como "OpenAPI", es muy importante que nuestra API siga este estándar para que Swagger genere la documentación de manera correcta.
+
+En nuestro caso tenemos que agregar "[HttpGet]" en nuestro "HelloWorldController.cs" antes del método GET para indicar cuál es el medio por el cual se va a acceder al método GET.
+
+En el caso del "WeatherForecastController.cs" vamos a comentar las rutas quedando una sola para ejecutarse, en este caso dejamos "[HttpGet(Name = "GetWeatherForecast")]".
+
+
+Luego volvemos a ejecutar nuestro proyecto con "dotnet run" copiamos la url y la pegamos en el Navegador.
+
+
+Allí nos saldrá los dos controladores que estamos manejando en el Proyecto: "HelloWorld" y "WeatherForecast".
+
+Si queremos probarlos, podemos acceder a una de ellas, hacer click en "try it out" luego en "Excecute".
+
+
+
+Swagger también es una muy buena herramienta para realizar pruebas sobra la API, pero se utiliza más para el tema de la documentación.
+
+
+En la próxima clase utilizaremos todo lo que hemos aprendido hasta el momento para crear un proyecto que se asemeje a uno real, en el que vamos a reutilizar algunas porciones de código pero vamos a realizar toda la configuración de los servicios, los controladores y al final nos conectaremos a una Base de Datos real.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
