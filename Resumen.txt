@@ -1069,6 +1069,48 @@ En la próxima clase utilizaremos todo lo que hemos aprendido hasta el momento p
 
 
 
+**********      Agregando librerías para Entity Framework      **********
+
+
+Abrimos el navegador y nos dirigimos a "https://www.nuget.org/" donde podremos encontrar todas las librerías públicas que podemos agregar a nuestro proyecto de .NET
+
+
+En la barra de búsquedas escribimos "Entity Framework".
+
+Optamos por la opción "Microsoft.EntityFrameworkCore".
+
+Elegimos una de las versiones que no sea Preview, copiamos la url y la pegamos en la terminal desde VSCode.
+
+De esta manera ya tenemos Entity Framework!
+
+
+
+
+Volvemos a "https://www.nuget.org/" y ahora buscamos "Entity Framework in memory", elegimos "Microsoft.EntityFrameworkCore.InMemory", que nos permitirá manejar una Base de Datos en Memoria para realizar pruebas.
+
+Elegimos la versión, copiamos el link, nos dirigimos a la Terminal de VSCode y pegamos la url para la instalación.
+
+
+
+
+Volvemos a "https://www.nuget.org/" y ahora buscamos "Entity Framework sql server", que es el motor al que vamos a conectarnos.
+Copiamos la url de la versión más estable y la pegamos en la Terminal de VSCode para instalarlo.
+
+
+Con esto ya hemos instalado las librerías base que necesitamos para desarrollar los controladores y servicios que vamos agregar a nuestro proyecto.
+
+En la próxima clase reutilizaremos unos modelos y una configuración de Entity Framework utilizando "Fluent API" que ya tenemos predefinida de otro proyecto y lo vamos a incluír dentro del proyecto para poder implementar los servicios y controladores para acceder a esta configuración.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
