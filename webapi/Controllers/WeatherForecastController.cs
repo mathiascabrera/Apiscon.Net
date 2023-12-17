@@ -17,6 +17,7 @@ public class WeatherForecastController : ControllerBase
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
+    //Esto es una implementación de Logging:
     private readonly ILogger<WeatherForecastController> _logger;
 
     /* Creamos una coleccion estatica */
@@ -51,6 +52,7 @@ public class WeatherForecastController : ControllerBase
     [Route("[action]")]/* De esta forma podemos utilizar el nombre del método para realizar el llamado del Endpoint. */
     public IEnumerable<WeatherForecast> Get()
     {
+        _logger.LogInformation("Retornando la lista de weatherforecast");
         return ListWeatherForecast;
 
     }

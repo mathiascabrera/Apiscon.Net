@@ -878,6 +878,68 @@ En la siguiente clase veremos el concepto de Login, que basicamente nos permite 
 
 
 
+**********      Agregando Logging a API      **********
+
+
+El Logging nos permite realizar una trazabilidad de lo que está ocurriendo dentro de la API.
+
+Lleva un registro de las acciones.
+
+Podemos agregarlo en cualquier punto, en cualquier funcionalidad que tengamos dentro de la API, ya sea en un controlador o en una clase en específica.
+
+
+
+Nos dirigimos a VSCode.
+
+En nuestro controlador "WeatherForecastController.cs" tenemos una implementación de Logging:
+
+private readonly ILogger<WeatherForecastController> _logger;
+
+
+y lo recibe por el constructor:
+
+ public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    {
+        _logger = logger;
+}
+
+
+
+Una vez recibido en el constructor, ya podemos utilizarlo en cualquier parte de la aplicación.
+
+
+
+
+En nuestro método GET() agregamos los siguiente:
+
+_logger.LogInformation("Retornando la lista de weatherforecast");
+
+informamos que la lista está siendo retornada.
+
+Este mensaje aparece en la Terminal, cuando ejecutamos el proyecto, por ende también será visible para los diferentes servicios que utilicemos, por ejemplo cuando publiquemos la API en un contenedor en la nube.
+
+Esto es muy importante para cuando la Aplicación esté en la nube y queramos saber qué está ocurriendo cuando se detecte un error o cuando haya una secuencia muy compleja de comandos que necesitemos manejar para poder entender que está ocurriendo internamente.
+
+
+
+Como reto realizaremos lo mismo en HelloWorldController.cs
+
+Agregarmos un logger dentro de las propiedades, la recibimos por el constructor, y en el método GET():
+
+logger.LogInformation("Retornando 'Hello World'.");
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

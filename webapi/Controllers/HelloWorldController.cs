@@ -15,13 +15,17 @@ public class HelloWorldController: ControllerBase
 {
     IHelloWorldService helloWorldService;/* Inyeccion */
 
-    public HelloWorldController(IHelloWorldService helloWorld)
+    public readonly ILogger<HelloWorldController> logger;
+
+    public HelloWorldController(IHelloWorldService helloWorld, ILogger<HelloWorldController> logger2)
     {
         helloWorldService = helloWorld;/* Recibimos por el constructor */
+        logger = logger2;
     }
 
     public IActionResult Get()
     {
+        logger.LogInformation("Retornando 'Hello World'.");
         /* Retorna un OK y el GetHelloWorld() */
         return Ok(helloWorldService.GetHelloWorld());
     }
