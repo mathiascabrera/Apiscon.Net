@@ -1,3 +1,5 @@
+using webapi.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -15,6 +17,13 @@ builder.Services.AddSwaggerGen();
 //Realizamos la inyección de otra manera, utilizamos la "expresión Lambda"
 builder.Services.AddScoped<IHelloWorldService>(p=> new HelloWorldService());/* De esta manera podemos inyectar utilizando directamente la clase, sin embargo es ideal utilizar las interfaces, forman parte de las buenas prácticas (SOLID) */
 /* De hecho, de esta forma podríamos podríamos agregarle parámetros al constructor, cosa que de la forma en que inyectamos anteriormente no se podría hacer. */
+
+
+/* Aquí realizamos las inyecciones de dependencias  */
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+builder.Services.AddScoped<ITareasService, TareasService>();
+/* Con esto ya tenemos la configuración de inyección de dependencias */
+
 
 var app = builder.Build();//Después de realizar el Build de la aplicación, se pueden agregar los Middlewares a utilizar
 

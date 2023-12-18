@@ -1219,6 +1219,59 @@ En la proxima clase vamos a crear la configuración de "Inyección de Dependenci
 
 
 
+**********      Inyectando servicios como dependencia      **********
+
+En la clase anterior creamos servicios para nuestros dos modelos (Tarea y Categoría).
+
+Ahora con esa implementación de servicios que poseen toda la lógica para poder traer eliminar y actualizar datos dentro de la base de datos, utilzando Entity Framework... lo que vamos a hacer ahora es realizar la configuración de inyección de dependencias para estos servicios, utilizando las herramientas que tiene por defecto el proyecto WEBAPI de .NET.
+
+
+
+Vamos para VSCode y realicemos las inyecciones de dependencias para "CategoriaService.cs" y "TareaService.cs".
+
+Recordemos que en la Clase "Program.cs" es donde se encuentra toda esta configuración.
+
+Ya tenemos un ejemplo de cómo realizar una inyección de dependencias:
+
+builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();//Buena práctica estamos haciendo uso de las interfaces
+
+ó
+
+builder.Services.AddScoped<IHelloWorldService>(p=> new HelloWorldService());//Mala practica, no utilizamos interface, sino directamente la clase.
+Sin embargo, esto último se utiliza cuando necesitamos pasar algo por parámetro, algo concreto dentro de la clase que estamos implementando entonces es mucho mas conveniente realizar el new y pasar la cantidad de parámetros necesarios.
+
+
+
+Una vez hayamos establecido las inyecciones de dependencias, los servicios estarán listos para utilizarse dentro de un Controlador, por lo que en la siguiente clase crearemos el Controlador.}
+
+
+De esta manera finalizamos con la configuración de dependencias de nuestros Servicios, ahora estamos listos para avanzar al último paso de la implementación que es crear los Controladores que van a exponer estos métodos que hemos creado en los servicios.
+
+Esta estructura que estamos creando normalmente se utiliza en proyectos reales.
+También podríamos haber inyectado directamente Entity Framework como dependencia a los Controladores y allí escribir la lógica, sin embargo, cuando el proyecto empieza a crecer y en especial a nivel de código, va ser muy difícil de mantener cuando tenemos lógica muy compleja, lo ideal, para que el proyecto pueda crecer, es utilizar los servicios y separar esa lógica para que los Controladores simplemente tenga que llamar al servicio y devolver lo que el servicio o la lógica que el servicio ejecuta.
+
+Basicamente estamos aplicando las mejores prácticas en la construcción de esta API.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
