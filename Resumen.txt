@@ -1121,6 +1121,67 @@ En la próxima clase reutilizaremos unos modelos y una configuración de Entity 
 
 
 
+**********      Configuración de Entity framework y clases base      **********
+
+Nos descargamos los recursos necesarios para esta clase (Arhivos ya creados en el curso de "Fundamentos de Entity Framework")
+"TareasContext.cs" es básicamente la configuración de Entity Framework.
+Dentro de la carpeta de Models, tenemos "Categoría.cs" (nos permitirán clasificar esas tareas que nosotros creemos) y "Tarea.cs"(nos ayudará a crear diferentes tareas ya sean personales o profesionales).
+
+
+Para verificar que el código esté funcionando correctamente abrimos una nueva Terminal, ejecutamos "dotnet build" para compilar.
+
+
+
+"TareasContext.cs" es el que posee la definición de Entity Framework.
+
+El contexto de Entity Framework siempre va a heredar de "DbContext".
+
+"OnModelCreating" es un método de Entity Framework.
+Es en donde tenemos las configuraciones de todas las tablas, a este modelo se lo conoce como "Fluent API", basicamente es la configuración de la base de datos utilizando diferentes métodos de extensión que tiene esta funcionalidad de Entity Framework, llamada "Fluent API".
+
+
+
+Con "ToTable" establecemos el nombre de la tabla.
+
+Con el "HasKey" establecemos cuál es la clave.
+
+Con "IsRequired()" podemos establecer que el campo sea requerido.
+
+Con "HasMaxLength()" podemos establecer el máximo de caracteres admitido.
+
+"HasData()" nos permite agregar datos iniciales.
+
+Con el "HasOne()" inidicamos a la tabla que esté del lado de uno y con "WithMany()" a la tabla que esté del lado de muchos. Con "HasForeignKey()" establecemos a la clave foránea.
+
+
+
+En la próxima clase crearemos Servicios para consumir este Contexto de Entity Framework y adicionalmente crear los controladores para traer guardar editar eliminar datos y realizar las acciones que normalmente se hacen en un Contexto de API sobre un modelo de Entity Framework.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
