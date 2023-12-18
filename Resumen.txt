@@ -1177,6 +1177,44 @@ En la próxima clase crearemos Servicios para consumir este Contexto de Entity F
 
 
 
+**********      Creación de Servicios      **********
+
+Estamos en condiciones de crear los servicios.
+
+Los Servicios, dentro de la API, son los que poseen toda la lógica para poder comunicarse con la base de datos, en este caso, utilizando Entity Framework, y se encarga de atender todas las acciones que al final van a ser ejecutadas desde los Controladores.
+
+De esta manera, los Controladores serían los que consumirían estos servicios y ejecutarían cada una de las acciones que configuremos en los servicios.
+
+
+Vamos para VSCode.
+
+Arrancamos creando un servicio para cada uno de los modelos (Models), es decir, para "Categoria.cs" y "Tarea.cs".
+
+Una vez hecho esto debemos ejecutar el comando "dotnet run" ó "dotnet build" para verificar que el código esté compilando.
+
+
+
+De esta manera hemos configurado los Servicios.
+
+
+En la proxima clase vamos a crear la configuración de "Inyección de Dependencias" para estos nuevos servicios que acabamos de crear.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
