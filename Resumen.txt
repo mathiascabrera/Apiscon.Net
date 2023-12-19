@@ -1273,6 +1273,44 @@ Basicamente estamos aplicando las mejores prácticas en la construcción de esta
 
 
 
+**********      Creando Controladores      **********
+
+Ya tenemos los Servicios con la lógica para poder Actualizar, Eliminar, Crear y Obtener datos desde los Modelos de Categoria y Tarea.
+
+En la última clase hemos realizado la configuración para poder inyectar estos Servicios a los Controladores.
+
+
+En esta clase crearemos los Controladores para exponer en la API estos métodos que hemos creado previamente.
+
+Esta Estructura es lo que se realizaría en un Proyecto Real utilizando Buenas Prácticas.
+
+
+
+
+Vamos al VSCode y creemos los Controladores para Categoria y Tarea.
+
+
+En la carpeta de Controllers creamos un nuevo archivo "CategoriaControllers.cs"
+
+Y creamos los métodos Get() Pop() Pup() y Delete().
+
+Posterior a ello realizamos lo mismo para "TareaControllers.cs"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
