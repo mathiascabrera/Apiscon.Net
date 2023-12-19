@@ -1326,6 +1326,112 @@ Ahora que ya tenemos listos los Controladores para exponer los métodos que hab�
 
 
 
+**********      Probando API con una base de datos SQL server      **********
+
+Ya tenemos todos los elementos en nuestra API para poder realizar la prueba que estabamos esperando, una prueba con una base de datos real.
+
+Tenemos los Servicios, los Controladores que estan exponiendo esos métodos que necesitan los Servicios, y ahora por último lo que vamos a realizar es conectar la Lógica que tenemos a la Base de Datos y probar que cada una de las acciones estén funcionando correctamente.
+
+
+Existen varios recursos en este curso para trabajar con otras Base de Datos diferentes a SQL Server, como puede ser Postgres SQL éste corre muy bien en SO como LINUX y MAC.
+
+
+
+Vamos para VSCode!
+
+
+La configuración del Entity Framework lo realizamos en el "Program.cs"
+
+Podemos apreciar que todos los Controladores estan recibiendo como Inyección de Dependencia los Servicios que hemos configurado y que esa dependencia sigue así en el "Program.cs", por ejemplo:
+
+
+En la "CategoriaController.cs" en su estado tenemos:
+
+ICategoriaService categoriaService;
+
+
+y en el "Program.cs" tenemos:
+
+builder.Services.AddScoped<ICategoriaService, CategoriaService>();
+
+
+
+
+
+
+No obstante, si vamos a uno de los servicios, por ejemplo a "CategoriaService.cs" tiene en su estado:
+
+TareasContext context;
+
+
+Esto necesita como dependencia Entity Framework, pero dentro del "Program.cs" no tenemos esa configuración, por lo que tenemos un problema, los Servicios que hemos creado van a decir que el "Context" no está llegando por lo que queda Null y obviamente no va a poder realizar ninguna de las acciones (get, save, update, delete), entonces lo que debemos de hacer es ir a la clase "Program.cs" y configurar el Entity Framework y queda de la siguiente manera:
+
+builder.Services.AddSqlServer<TareasContext>("");
+
+Entre <> va el Context.
+El ("") es el Conexion string para conectarnos a la base de datos.
+
+¿Cómo podemos obtener el Conexion String?.
+
+Es importante entender cuál es la configuración que tiene nuestro servidor y para ello utilizaremos el "Microsoft SQL Server Management Studio", una vez abierto este SQL Management nos saldrá la ventana de la configuración donde aparecerá el Tipo de Servidor (debe estar en Database Engine), Server name (aparecerá el nombre de nuestro servidor), la Autenticación (debe estar en SQL Server Authentication), el Login y el Password que debieron ser creadas al principio al momento de realizar la configuración inicial.
+
+Copiamos el Nombre del Servidor. Si tenemos el caracter \ nos va a saltar un error en C# pero para solucionar esto simplemente debemos agregar una contrabarra más y listo, quedando de la siguiente manera: \\
+
+la estructura es la siguiente:
+
+"Data Source=AquiVaElNombreDelServidor;Initial Catalog=AquiVaElNombreDeLaBaseDeDatos;user id=AquiVaNuestroLogin;password=AquiVaNuestroPassword"
+
+En el código queda así:
+
+builder.Services.AddSqlServer<TareasContext>("Data Source=AquiVaElNombreDelServidor;Initial Catalog=AquiVaElNombreDeLaBaseDeDatos;user id=AquiVaNuestroLogin;password=AquiVaNuestroPassword");
+
+en VSCode:
+
+builder.Services.AddSqlServer<TareasContext>("Data Source=DESKTOP-GRI1MOM;Initial Catalog=TareasDb;user id=matydev;password=matydev");
+
+
+Una vez hecho esto ejecutamos dotnet run desde la Terminal en VSCode.
+
+Ahora nos dirigimos a Postman a realizar la ejecución y luego a SQL Management a verificar que verdaderamente la Base de Datos se haya creado correctamente.
+
+
+Al ejecutar el GET desde Postman por ejemplo con el Endpoint "https://localhost:7182/api/Categoria" nos podría salir el error de no tener acceso a la Base de Datos "TareasDb", y esta base de datos aún no está creada dentro de SQL Server, lo que vamos a realizar es agregar una porción de código que nos permita verificar que la base de datos ha sido creada antes de ejecutar cualquier otro comando u otra acción dentro de la base de datos.
+
+
+Frente a este inconveniente realizo un Commit para separar el antes y el después.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

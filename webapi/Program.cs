@@ -1,3 +1,4 @@
+using webapi;
 using webapi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,10 @@ builder.Services.AddEndpointsApiExplorer();
 
 //Acá se establece una dependencia, los servicios son las dependencias. Agrega diferentes servicios que serán utilizados por los componentes internos de la aplicación 
 builder.Services.AddSwaggerGen();
+
+//Configuramos Entity Framework. Entre <> va el Context. El ("") es el conexion string para conectarnos a la base de datos.
+builder.Services.AddSqlServer<TareasContext>("Data Source=DESKTOP-GRI1MOM;Initial Catalog=TareasDb;user id=matydev;password=matydev");
+
 
 //Cada vez que se inyecte la interface  IHelloWorldService  se va a crear un nuevo objeto de HelloWorldService internamente, es lo que va a realizar el inyector.
 //builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();
