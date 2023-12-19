@@ -1299,6 +1299,15 @@ Posterior a ello realizamos lo mismo para "TareaControllers.cs"
 
 
 
+Listo ya tenemos los controladores listo para pasar al siguiente paso que es conectarnos a una Base de Datos y empezar a realizar pruebas con toda esta implementación.
+
+Ahora que ya tenemos listos los Controladores para exponer los métodos que habíamos realizado en los Servicios tanto como para Categoria como para Tarea, vamos al siguiente paso en el que vamos a terminar de configurar Entity Framework para que se conecte a una Base de Datos y podamos probar todo lo que hemos realizado, toda la implementación de Servicios y Controladores.
+
+¡En la próxima clase conectaremos nuestra WebAPI a una Base de Datos real!
+
+
+
+
 
 
 
