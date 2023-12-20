@@ -1403,6 +1403,52 @@ Frente a este inconveniente realizo un Commit para separar el antes y el despué
 
 
 
+En esta segunda parte, para resolver lo anterior, manipulamos la clase "HelloWorlsControllers.cs" agregandole un:
+TareasContext dbcontext;
+y recibiendolo por el Constructor.
+
+
+También creamos el método "CreateDataBase()" para verificar la base de datos se cree correctamente.
+
+
+Una vez realizado estos procedimientos, ejecutamos dotnet run desde la Terminal y comprobamos de que todo esté funcionando correctamente.
+
+
+
+Luego nos dirigimos nuevamente a Postman, vamos a ejecutar desde el GET "https://localhost:7182/api/helloworld/createdb" que es el método que creamos dentro del Controlador de HelloWorld (HelloWorldController.cs).
+
+
+Debería devolvernos Ok y crear la base de datos y creó la información que por defecto debería tener.
+
+
+Ahora podemos probar nuevamente el endpoint "https://localhost:7182/api/Categoria" en el método GET y debería devolvernos la información que se encuentra en la tabla de Categoria.
+
+
+
+Para realizar un POST, debemos utilizar el mismo Endpoint luego le damos click en Body luego en raw y elegir que lo vamos a cargar en formato JSON.
+
+Copiamos la estructura que nos devolvió el método de GET anteriormente, para no tener que realizarlo desde cero, borramos el id ya que no es necesario, y llenamos los campos de nombre descripcion y peso.
+Luego realizamos la ejecución del POST dandole click a Send, debería devolvernos un Ok informandonos que los datos fueron cargados exitosamente.
+
+
+Al ejecutar el GET debería devolvernos todos los datos de la Categoria incluyendo la que acabamos de agregar mediante el POST.
+
+
+
+Ahora podríamos ir a SQL Management para poder asegurarnos de que la base de datos fué creada exitosamente.
+
+En Tables podremos ver que estan las dos tablas, la de Categoria y la de Tarea, y dentro de estas cada una de las columnas que habíamos establecido en VSCode.
+
+Si le damos click derecho sobre la tabla de "Categoria" y click izquierdo a "Select Top 1000 Rows" debería aparecernos los mismos datos que obtuvimos en Postman al realizar el GET.
+
+
+
+
+De esta manera podemos crear una "Arquitectura por Capas" asignando diferentes responsabilidades utilizando "Inyección de Dependencias" y las mejores prácticas para construír nuestra API y fácilmente poder exponer utilizando los Controladores todos los Endpoints que queremos que el usuario pueda consumir para interactuar con los datos, en este caso los datos de nuestra base de datos con Categorías y Tareas.
+
+
+Con esto finalizamos con implementación de nuestra API, que se asemeja mucho a lo que sería un proyecto real.
+
 
 
 

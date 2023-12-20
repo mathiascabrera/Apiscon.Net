@@ -13,7 +13,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Configuramos Entity Framework. Entre <> va el Context. El ("") es el conexion string para conectarnos a la base de datos.
-builder.Services.AddSqlServer<TareasContext>("Data Source=DESKTOP-GRI1MOM;Initial Catalog=TareasDb;user id=matydev;password=matydev");
+builder.Services.AddSqlServer<TareasContext>("Data Source=DESKTOP-GRI1MOM;Initial Catalog=TareasDb;user id=matydev;password=matydev;TrustServerCertificate=True");
 
 
 //Cada vez que se inyecte la interface  IHelloWorldService  se va a crear un nuevo objeto de HelloWorldService internamente, es lo que va a realizar el inyector.
