@@ -1472,6 +1472,40 @@ Con esto finalizamos con implementación de nuestra API, que se asemeja mucho a 
 
 
 
+**********      Restrospectiva: APIs con .NET      **********
+
+Hemos completado con éxito el curso de APIs con .NET.
+
+Aprendimos qué es una API, qué es el patrón REST, y luego empezamos a indagar dentro del template de WEBAPI que viene por defecto en .NET, vimos temas de arquitectura, el Logging, la inyección de dependencias, cómo funciona Swagger que ya viene por defecto en el template WebApi, también analizamos el concepto de Middlewares dentro de .NET el cual es la base para todo el procesamiento de todos los Request que se realicen dentro de nuestra API, también construímos un Middleware personalizado que nos ayudó a entender cómo funciona internamente este tipo de componente dentro de una API con .NET.
+
+Al final del curso utilizamos todos los conocimientos que adquirimos de principio a fin para crear una API que se asemeja un poco más a un proyecto real.
+
+Reutilizamos modelos de Categorías y Tareas, realizamos una configuración de Entity Framework como base. Luego creamos los Servicios y los Controladores para exponer los diferentes métodos y acciones que queríamos ejecutar sobre estos modelos.
+
+Finalmente luego de realizar toda esta configuración, conectamos nuestro proyecto a una base de datos real. Esto nos permitió poder comprobar efectivamente toda la lógica que habíamos construído alrededor de estos métodos estuvieran funcionando correctamente con una base de datos real lo cual se asemeja mucho a lo que sería un proyecto laboral que podemos ejecutar con estos conocimientos que hemos adquirido en este curso.
+
+
+Queda pendiente muchos temas referentes a los APIs, como por ejemplo el de Seguridad, con Cores, con Json Web Toquens, buenas prácticas en algunos otros escenarios, conectar al API a otras APIs, estos temas y demás las podemos consultar en la documentación oficial de Microsoft en donde hay diferentes Demos que podemos ejecutar. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
