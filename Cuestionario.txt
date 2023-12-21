@@ -27,6 +27,67 @@ Entity Framework es una librería. La hemos utilizado para conectarnos a una Bas
 
 
 
+5 - ¿Qué significan las siglas API?.
+
+Las siglas API significan "Application Programming Interface".
+
+
+
+6 - ¿Cómo podrías describir qué es una API?.
+
+Una API es una aplicación que nos permite crear una capa de abstracción o una Interface entre una aplicación y otra.
+
+Una API es un proveedor de métodos y funciones hacia otras aplicaciones.
+
+Encapsulamos una determinada lógica dentro de una aplicación que será consumida por otra. Esta otra aplicación deberá pasar a través de una capa de abstracción para poder realizar este consumo.
+
+Esta capa de abstracción nos permite que la API pueda ser consumida por cualquier otro tipo de cliente, incluso si no está desarrollado en el mismo lenguaje de programación o con la misma tecnología.
+
+
+
+7 - ¿Cuál es la característica o funcionalidad de las APIs, que según lo visto, es lo más resaltante y que a su vez es el motivo por el cual se utiliza en gran medida en las Industrias de Desarrollo de Software?.
+
+Lo más resaltante de una API, según lo visto, es su capacidad de ser consumida por cualquier tipo de cliente, incluso si no está desarrollado en el mismo lenguaje de programación.
+
+
+
+8 - Según lo visto: ¿Cuáles son las capas adicionales que pueden poseer las APIs?.
+
+Según lo visto, las APIs pueden poseer capas adicionales de Seguridad, Autorización y Autenticación que nos permiten determinar qué pueden ver los usarios y qué pueden ejecutar cuando estén consumiendo la API.
+
+
+
+9 - ¿Qué podría ser el Cliente en una Arquitectura común en una aplicación Cliente-Servidor?.
+
+El Cliente en una Arquitectura Cliente-Servidor, podría ser una aplicación web creada en REACT/ANGULAR, o también podría ser una App que puede ser desarrollada en Flutter o Xamarin, como así también podría ser una Aplicación de Escritorio.
+
+
+
+10 - ¿Una API puede consumir otras APIs?.
+
+Sí, una API puede consumir otras APIs.
+
+
+
+11 - De ejemplos de APIs.
+
+Un ejemplo podría ser la del "Almacenamiento de Archivos", como lo es la de Azure o AWS.
+Esta API nos permite guardar archivos de textos, documentos, imágenes, videos, etc. La API es la que se va a encargar de realizar esta comunicación.
+
+Otro ejemplo es la de consumir "Servicios de Pagos", como por ejemplo la de PayPal o Stripe.
+Esta API nos permite manejar los pagos y consumos que esté generando el Usuario dentro de la aplicación.
+
+También podríamos realizar una "Autenticación" de la API utilizando otras APIs de otros proveedores como podrían ser la API de Facebook y la API de Google.
+Es bastante común en aplicaciones modernas que podamos usar nuestra cuenta de Google o de Facebook o de otras cuentas, para realizar el proceso de autenticación dentro de una aplicación.
+
+
+
+
+
+
+
+
+
 
 
 
