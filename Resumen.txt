@@ -9,18 +9,22 @@ Obtendremos todos los conocimientos necesarios para crear nuestros propios APIs 
 
 Arrancaremos viendo el concepto de REST ó patrón de REST, ya que este es el concepto que utiliza internamente el template de API de .NET para su funcionamiento.
 
-Luego de ello analizaremos algunos aspectos de las arquitecturas dentro de las APIs, como lo es el concepto de Login, Inyección de Dependencia, Swagger, y los Middlewares, esta ultima son las bases del funcionamiento de las APIs con .NET.
+Luego de ello analizaremos algunos aspectos de las arquitecturas dentro de las APIs, como lo es el concepto de Logging, Inyección de Dependencia, Swagger, y los Middlewares, esta ultima son las bases del funcionamiento de las APIs con .NET.
 
 Posterior a ello crearemos un proyecto muy parecido a lo que sería un proyecto real utilizando 2 modelos:
-un modelo de tareas, un modelo de categorias, y una configuración de Entity Framework.
+- "Un modelo de tareas"
+- "Un modelo de categorias", y
+- "Una configuración de Entity Framework".
 
-Utilizaremos Entity Framework para conectarnos a una bd real. Para ello podremos optar por SQL Server y PostgresSQL.
+
+Utilizaremos "Entity Framework" para conectarnos a una Base de Datos real. Para ello podremos optar entre "SQL Server" y "PostgresSQL".
 
 
 Una vez adquirido todos estos conocimientos, estaremos listos para crear nuestras propias APIs.
 
-Es importante tomar el curso de Entity Framework antes de tomar este curso.
-Es una librería que utilizaremos para poder conectarnos a una base de datos real y poder completar todos los ejercicios del curso.
+Es importante tomar el curso de "Entity Framework" antes de tomar este curso.
+
+"Entity Framework" es una librería que utilizaremos para poder conectarnos a una Base de Datos real y poder completar todos los ejercicios del curso.
 
 
 
@@ -33,40 +37,47 @@ Es una librería que utilizaremos para poder conectarnos a una base de datos rea
 
 **********      ¿Qué es una API?      **********
 
-Application Programming Interface
+Sus siglas significan: "Application Programming Interface".
 
-Es una aplicacion que nos permite crear una capa de abstracción o una interface entre una aplicacion y otra.
+Una API es una aplicacion que nos permite crear "una capa de abstracción" o "una interface entre una aplicacion y otra".
 
-Es un proveedor de métodos y funciones hacia otras aplicaciones.
+Es un "proveedor de métodos y funciones hacia otras aplicaciones".
 
 Encapsulamos una lógica dentro de una aplicación que será consumida por otra, y tiene que pasar a través de una capa de abstracción para poder realizar este consumo.
 
-Esta capa de abstraccion nos permite que la API pueda ser consumida por cualquier tipo de cliente, incluso si no está desarrollado en el mismo lenguaje de programación o con la misma tecnología. Esto es lo MAS RESALTANTE de una API, y esta es la razón por la que se utiliza tanto en la industria del desarrollo de software y es una de las cuestiones que debe saber un desarrollador backend.
+Esta capa de abstraccion nos permite que la API pueda ser consumida por cualquier tipo de cliente, incluso si no está desarrollado en el mismo lenguaje de programación o con la misma tecnología.
+
+Esto es lo MAS RESALTANTE de una API, y esta es la razón por la que se utiliza tanto en la Industria del Desarrollo de Software y es una de las cuestiones que debe saber un Desarrollador Backend.
 
 
-Tambien la API puede poseer capas adicionales de seguridad, autorizacion y autenticación nos permitiran determinar qué pueden ver el usuario y qué puede ejecutar cuando esté consumiendo una API.
+Tambien la API puede poseer Capas Adicionales de Seguridad, Autorizacion y Autenticación que nos permitirán determinar qué puede ver el usuario y qué puede ejecutar cuando esté consumiendo la API.
 
 
 
 
-Arquitectura comun en una aplicacion Cliente Servidor (página 7 pdf).
+Arquitectura común en una aplicacion Cliente-Servidor (página 7 pdf).
 
-El cliente podría ser una aplicacion web creada en REACT en Angular o tambien una App que puede ser desarrollada en Flutter o Xamarin, o tambien podría ser una aplicacion de escritorio.
+El cliente podría ser una aplicacion web creada en REACT, o en Angular o también podría ser una App que puede ser desarrollada en Flutter o Xamarin, o también podría ser una Aplicacion de Escritorio.
 
 Al final este cliente tendrá que consumir una API, que sería nuestro Backend o nuestro Servidor de Backend que va a tener toda la lógica que este cliente necesita y va a servir como una capa de abstracción entre el cliente y todas las acciones que nosotros queremos realizar en la base de datos.
-Esto va a permitir que nuestra aplicación sea mucho mas segura y que nosotros nos encargemos en nuestra API de hacer la gestión de todo lo que el cliente quiere hacer.
-Al final el cliente no se va a enterar que exactamente de qué está haciendo la aplicación, simplemente va a recibir notificaciones de qué lo hizo, o qué fué lo que pasó.
+
+Esto va a permitir que nuestra aplicación sea mucho mas segura y que nosotros nos encargemos, desde nuestra API, de realizar la gestión de todo lo que el cliente necesite.
+
+Al final el cliente no se va a enterar qué exactamente está realizando la aplicación, simplemente va a recibir notificaciones de lo que realizó, o qué fué lo que sucedió.
 
 
-Es muy importante mencionar que una API puede consumir otras APIS. De hecho esto es muy común en una aplicación real.
+Es muy importante mencionar que una API puede consumir otras APIs. De hecho esto es muy común en una Aplicación real.
 
 
-Uno de los ejemplos de Api del pdf es la de Almacenamiento de archivos, como lo es la de Azure o AWS. Que nos permiten guardar archivos de texto, documentos, imágenes, videos, etc.
-La API es la que se va a encargar de realizar esta comunicación.
+Uno de los ejemplos de Api, dados en el pdf, es la del "Almacenamiento de Archivos", como lo es la de Azure o AWS. Que nos permiten guardar archivos de texto, documentos, imágenes, videos, etc.
+La API es la que se va a encargar de realizar esta Comunicación.
 
-También podemos consumir Sericios de Pagos, como por ejemplo la de PayPal o Stripe que nos van a permitir manejar los pagos y consumos que esté generando el Usuario dentro de la aplicación.
+También podemos consumir Servicios de Pagos, como por ejemplo la de PayPal o Stripe.
+Éstos nos permitirán manejar los pagos y consumos que esté generando el Usuario dentro de la aplicación.
 
-También podríamos realizar una Autenticación de la API utilizando otras APIs de otros proveedores como podrian ser la API de Facebook y la API de Google. Es bastante común en aplicaciones modernas que podamos usar nuestra cuenta de Google de Facebook y otras cuentas para realizar el proceso de autenticación dentro de una aplicación.
+También podríamos realizar una Autenticación de la API utilizando otras APIs de otros proveedores como podrían ser la API de Facebook y la API de Google.
+
+Es bastante común en aplicaciones modernas que podamos usar nuestra cuenta de Google de Facebook y otras cuentas para realizar el proceso de autenticación dentro de una aplicación.
 
 
 
@@ -80,18 +91,23 @@ También podríamos realizar una Autenticación de la API utilizando otras APIs 
 
 **********      ¿Qué es REST?      **********
 
-API REST es la combinación de las dos definiciones, para poder crear APIs que sigan un único estándar, que en este caso sería el estándar de Rest.
+"API REST" es la combinación de las dos definiciones, para poder crear APIs que sigan un único estándar, que en este caso sería el estándar de Rest.
+
 
 REST = Representational state transfer.
 
 - Estilo de arquitectura para el diseño de interfaces web.
+
 Esto significa que tanto API como REST no son implementaciones o tecnologías que podamos descargar e instalar en nuestro ordenador.
 Basicamente son solo conceptos teóricos que debemos aplicar al momento en el que estemos escribiendo o estructurando nuestro proyecto.
 
-- Permite el manejo de recursos desde el lado del servidor.
-REST posee toda una serie de reglas que nosotros debemos seguir, permitiendonos manejar los recursos en todas las situaciones en las que debamos manejar o controlar recursos.
 
-- REST es muy bueno ya que nos permite obtener un alto rendimiento, una buena escalabilidad,  mucha simplicidad a la hora de codificar nuestra API y mucha confiabilidad.
+- Permite el manejo de recursos desde el lado del servidor.
+
+REST posee toda una serie de reglas que nosotros debemos seguir, permitiéndonos manejar los recursos en todas las situaciones en las que debamos manejar o controlar recursos.
+
+
+- REST es muy bueno ya que nos permite obtener un alto rendimiento, una buena escalabilidad, mucha simplicidad a la hora de codificar nuestra API y mucha confiabilidad.
 
 
 Basicamente Rest es un patrón que ya está comprobado, que funciona, y que se aplica a la gran mayoría de API que se construyen al día de hoy. 
@@ -102,19 +118,31 @@ Basicamente Rest es un patrón que ya está comprobado, que funciona, y que se a
 
 PÁGINA 11: HTTP VERBS
 
-Una de las reglas de REST es que debemos utilizar unos VERBS o unos verbos al momento en que hacemos un llamado HTTP para indicar a la API cuál es la acción que necesitamos ejecutar.
+Una de las reglas de REST es que debemos utilizar unos VERBS o unos verbos al momento en que realizamos un llamado HTTP para indicar a la API cuál es la acción que necesitamos ejecutar.
 
-Si necesitamos Obtener y Leer recursos que se encuentran dentro del Servidor, sean recursos que esten en una base de datos o en un archivo debemos utilizar el VERBO GET.
+Si necesitamos "OBTENER Y LEER RECURSOS" que se encuentran dentro del Servidor, sean recursos que esten en una base de datos o en un archivo debemos utilizar el VERBO "GET".
 
-Si necesitamos CREAR o realizar la inserción de un recurso de algún dato debemos utilizar el VERBO POST.
+Si necesitamos "CREAR o realizar la INSERCIÓN de un Recurso" de algún dato debemos utilizar el VERBO "POST".
 
-Si necesitamos realizar la ACTUALIZACION DE UN REGISTRO, debemos utilizar el método PUT.
+Si necesitamos realizar la "ACTUALIZACIÓN DE UN REGISTRO", ó editar un registro, debemos utilizar el método "PUT".
 
-Si necesitamos realizar la ACTUALIZACIÓN PARCIAL de un registro (es decir, actualizar solamente por ejemplo un campo o una columna de una tabla), utilizaremos el método PATCH.
+Si necesitamos realizar la "ACTUALIZACIÓN PARCIAL de un Registro" (es decir, actualizar solamente por ejemplo un campo o una columna de una tabla), utilizaremos el método PATCH.
 
 Si necesitamos ELIMINAR un Registro, haremos uso del método DELETE.
 
-Estos son los VERBOS mas utilizados para poder realizar acciones con recursos en base de datos o del lado del servidor en un API, pero existen tambien otros muy importantes.
+Estos son los VERBOS mas utilizados para poder realizar acciones con recursos en Base de Datos o del lado del Servidor en un API, pero existen tambien otros muy importantes.
+
+Entonces:
+
+- GET = Permite Obtener y Leer Recursos.
+
+- POST = Permite Crear/Insertar Recursos.
+
+- PUT = Permite Actualizar un Recurso.
+
+- PATCH = Permite Actualizar Parcialmente un Registro.
+
+- DELETE = Permite Eliminar un Registro.
 
 
 
@@ -123,11 +151,11 @@ Estos son los VERBOS mas utilizados para poder realizar acciones con recursos en
 
 PÁGINA 12: Manejo de URLs
 
-Otra regla es la de manejar una URL por cada recurso que tengamos en la base de datos, esta URL nos va a permitir realzar las acciones que deseemos con este recurso, pero esta URL no puede ser dinámica, no puede cambiar y además debe indicar cuál es el recurso al que estamos accediendo.
+Otra regla es la de manejar una URL por cada recurso que tengamos en la base de datos, esta URL nos va a permitir realizar las acciones que deseemos con este recurso, pero esta URL no puede ser dinámica, no puede cambiar y además debe indicar cuál es el recurso al que estamos accediendo.
 
 Ejemplo: /api/usuarios/1
 
-En este caso se está accediendo por ejemplo a la api, y a algun recurso como podría ser una tabla, el 1 al final indica el recurso 1 dentro de la tabla usuarios.
+En este caso se está accediendo por ejemplo a la api, y a algún recurso como podría ser una tabla, el 1 al final indica el recurso 1 dentro de la tabla usuarios.
 
 Esta URL no va a cambiar, y es la misma url que vamos a utilizar para todas las acciones que queramos realizar con este recurso. Si queremos eliminarlo, si queremos actualizarlo, si queremos obtenerlo vamos a tener que utilizar esta misma URL.
 
@@ -135,39 +163,39 @@ Esta URL no va a cambiar, y es la misma url que vamos a utilizar para todas las 
 
 
 
-PAGINA 13 : RESPUESTAS HTTP
+PÁGINA 13 : RESPUESTAS HTTP
 
-Por ultimo, Rest posee una serie de respuestas que nosotros debemos manejar para poder notificar al usuario de lo que está ocurriendo en nuestra API. Esto también nos permite manejar un estándar porque el concepto de API no nos dice qué es lo quedemos de devolver ya que simplemente estamos interactuando una aplicacion con otra, REST nos ayuda a poder manejar un estándar para poder manejar el tema de respuestas y comunicación entre una aplicación cliente y un servidor.
+Por último, REST posee una serie de respuestas que nosotros debemos manejar para poder notificar al usuario de lo que está ocurriendo en nuestra API.
+Esto también nos permite manejar un estándar porque el concepto de API no nos dice qué es lo queremos devolver ya que simplemente estamos interactuando una aplicacion con otra, REST nos ayuda a poder manejar un estándar para poder manejar el tema de respuestas y comunicaciones entre una aplicación cliente y un servidor.
+
 
 Tenemos diferentes respuestas que podemos manejar en una API REST:
 
 - Respuestas Informativas (100 - 199), los códigos que van desde los 100 hasta los 199.
 
-- Respuestas Satisfactorias (200 - 299), ESTAS SON LAS RESPUESTAS MAS UTILIZADAS.
+- Respuestas Satisfactorias (200 - 299), "ESTAS SON LAS RESPUESTAS MAS UTILIZADAS".
 
 - Redirecciones (300 - 399)
 
-- Errores de los clientes (400 - 499), ALTAMENTE UTILIZADOS TAMBIÉN.
+- Errores de los clientes (400 - 499), "TAMBIÉN ALTAMENTE UTILIZADOS".
 
 - Errores de los servidores (500 - 599) , ALTAMENTE UTILIZADOS TAMBIÉN ya que normalmente vamos a obtener este tipo de errores si existe una mala configuracion o un error interno dentro de la API.
 
 
-Las respuestas mas utilizadas que podemos resaltar son 500 Internal Error que significa que ocurri+o un error interno dentro del Servidor, generalmente es un error no controlado, es decir, es algo que no debió pasar en el servidor pero que de alguna manera nunca se controló y nos devuelve un error y no puede controlar la accion que le estemos solicitando a nuestra API.
+Las respuestas mas utilizadas que podemos resaltar son "500 Internal Error" que significa que ocurrió un error interno dentro del Servidor, generalmente es un error no controlado, es decir, es algo que no debió pasar en el servidor pero que de alguna manera nunca se controló y nos devuelve un error y no puede controlar la accion que le estemos solicitando a nuestra API.
+
+200 es el codigo exitoso, "es el mas utilizado" y es lo que esperamos que siempre ocurra dentro de una aplicacion indicando que todo esta funcionando correctamente.
 
 
 
-200 es el codigo exitoso, es el mas utilizado y es lo que esperamos que siempre ocurra dentro de una aplicacion indicando que todo esta funcionando bien.
+NOT FOUND significa que el recurso no fue encontrado. Es bastante común también.
 
 
 
-NOT FOUND significa que el recurso no fue encontrado. Es bastante común también .
+201 indica que se ha creado un recurso, tambien es altamente utilizado.
 
 
-
-201 que indica que se ha creado un recurso, tambien es altamente utilizado.
-
-
-204 el no content, que todo se realizó bien pero que no hay contenido para devolver. Esto se utiliza cuando se realiza tareas de actualizacion o cuando se realizan cambios dentro del servidor.
+204 el no content, que todo se realizó bien pero que no hay contenido para devolver. Esto se utiliza cuando se realiza tareas de actualización o cuando se realizan cambios dentro del servidor.
 
 
 
@@ -185,25 +213,25 @@ Comandos desde la consola:
 
 Una vez situado en la carpeta que vamos a utilizar para el proyecto podemos ejecutar los siguientes comandos:
 
-° dotnet new = crea un proyecto de .NET basado en una plantilla.
+- dotnet new = crea un proyecto de .NET basado en una plantilla.
 
 Con este comando podemos crear diferentes proyectos, no solo APIs, sino tambien PROYECTOS DE CONSOLA, PROYECTOS PARA WINDOWS, PROYECTOS DE BLAZOR.
 
 
-° dotnet new --list = para visualizar todas las planillas.
+- dotnet new --list = para visualizar todas las planillas.
 
-Desglozandose el listado, el comando que vamos a utilizar es "webapi"
+Desglozándose el listado, el comando que vamos a utilizar es "webapi".
 
-Tambien existe otro diferente que es el "web" que permite crear una web api utilizando mínima la api, que es un concepto nuevo que posee .NET, sin embargo el TEMPLATE Clásico y el más completo es el "webapi"
+Tambien existe otro diferente que es el "web" que permite crear una web api utilizando mínima la API, que es un concepto nuevo que posee .NET, sin embargo el TEMPLATE Clásico y el más completo es el "webapi".
 
 
 Procedemos, desde la consola, a ejecutar el comando "dotnet new webapi" para que se cree nuestro proyecto.
 
 
-Luego si deseamos abrir el proyecto con VScode desde la terminal podemos hacerlo con "code ." siempre y cuando estemos situados en el directorio correcto.
+Luego si deseamos abrir el proyecto con VSCode desde la terminal podemos realizarlo con el comando "code ." siempre y cuando estemos situados en el directorio correcto.
 
 
-En la próxima sesión utilizaremos POSTMAN para poder analizar el ENDPOINT o la URL que trae por defecto la API, que sería como el DEMO que trae la API para que podamos jugar con ella y entender cómo funciona.
+En la próxima sesión utilizaremos "POSTMAN" para poder analizar el ENDPOINT o la URL que trae por defecto la API, que sería como el DEMO que trae la API para que podamos jugar con ella y entender cómo funciona.
 
 
 
@@ -219,16 +247,18 @@ En la próxima sesión utilizaremos POSTMAN para poder analizar el ENDPOINT o la
 
 
 
-15 extensiones indispensables para programar con C# y .NET Core
+15 extensiones indispensables para programar con C# y .NET Core:
 
 https://marketplace.visualstudio.com/items?itemName=jolhe.csharp-netcore-extensionpack
+
+
 
 En esta clase ejecutaremos el proyecto que hemos creado anteriormente y utilizaremos POSTMAN para comprobar el funcionamiento de nuestra API.
 
 
-Primeramente abrimos una nueva terminal para ejecutar el proyecto
+Primeramente abrimos una nueva terminal para ejecutar el proyecto.
 
-ejecutamos el comando dotnet run
+Ejecutamos el comando dotnet run.
 
 Al ejecutarlo nos saldrá los links a los cuales podremos consumir nuestra API.
 
@@ -242,18 +272,16 @@ Luego pegamos el link que copiamos de VSCODE.
 
 Una vez ingresada la direccion le damos click a SEND.
 
-Al presionar SEND salta en STATUS "404 Not Found"
+Al presionar SEND salta en STATUS "404 Not Found", lo cual quiere decir que la ruta a la que queremos acceder no posee ningún contenido, o no posee ninguna acción dentro de la API.
 
-Lo cual quiere decir que la ruta a la que queremos acceder no posee ningún contenido, o no posee ninguna acción dentro de la API.
-
-Por lo que debemos fijarnos dentro de la API cuál es la ruta a la que debemos acceder para realizar alguna acción.
+Debemos fijarnos dentro de la API cuál es la ruta a la que debemos acceder para realizar alguna acción.
 
 
 Entonces volvemos a VSCODE.
 
 Revisamos la carpeta "Controllers", esta carpeta contiene todas las clases que realizan el manejo de los request dentro de la API.
 
-Alli nos fijamos en la instruccion ROUTE , para saber qué ruta utilizar para consumir el Endpoint.
+Alli nos fijamos en la instruccion "ROUTE" , para saber qué ruta utilizar para consumir el Endpoint.
 En este caso recibe el mismo nombre del controlador "WeatherForecast", por lo que volvemos a Postman y a la direccion que ya habiamos copiado anteriormente le agregamos una barra y el nombre de la ruta ("WeatherForecast").
 
 Quedando, por ejemplo : http://localhost:5087/WeatherForecast
@@ -273,7 +301,7 @@ Y volvemos a darle click a SEND.
 
 **********      Análisis del Template para APIs de .NET      **********
 
-Veamos un concepto fundamental "MVC"
+Veamos un concepto fundamental = "MVC".
 
 Estas siglas significan:
 
@@ -287,7 +315,7 @@ Es altamente utilizado dentro del desarrollo de software.
 
 Nos ayuda a poder realizar una separacion de responsabilidades dentro de la estructura de nuestro proyecto.
 
-La idea es crear "modelos" que son clases en la POO que nos permitiran almacenar los datos que nosotros en ese momento estemos manejando o que el usuario esté visualizando en ese momento a través de la VIEW.
+La idea es crear "modelos" que son clases en la POO que nos permitirán almacenar los datos que nosotros en ese momento estemos manejando o que el usuario esté visualizando en ese momento a través de la VIEW.
 
 La VIEW es esa Interfaz que va a tener nuestra aplicación para entenderse o comunicarse con el usuario.
 
@@ -298,7 +326,7 @@ ESTE PATRÓN ESTÁ MUY LIGADO AL DESARROLLO WEB ó APLICACIONES WEB.
 
 
 
-En el caso del Template WEBAPI es eliminar la parte de la vista, es decir pasamos de MVC a MC:
+En el caso del Template WEBAPI se elimina la parte de la vista, es decir pasamos de MVC a MC:
 MODEL (para almacenar los datos) y CONTROLLER (para manejar la lógica).
 
 Recordemos que una API no tiene una interfaz de usuario, simplemente es una capa abstracta que permite que interactuemos con ella a través del patrón REST.
@@ -308,36 +336,37 @@ Lo común es que otros clientes, u otras APIS consuman los datos o ejecuten las 
 
 
 
-VEAMOS LA ESTRUCTURA DEL PROYECTO QUE TENEMOS EN VISUAL STUDIO
+VEAMOS LA ESTRUCTURA DEL PROYECTO QUE TENEMOS EN VISUAL STUDIO.
 
 "Todos los controladores deben almacenarse en la carpeta CONTROLLERS"
 
 Por defecto, dentro de esta carpeta viene una clase llamada "WeatherForecastController"
 
-Si nuestro proyecto tiene que manejar usuarios, procesos, areas, empleados, productos etc, lo que debemos realizar es crear un controlador para cada uno de esos modelos.
+Si nuestro proyecto tiene que manejar usuarios, procesos, areas, empleados, productos, etc; lo que debemos realizar es crear un Controlador para cada uno de esos modelos.
 
-CADA MODELO CREADO DEBE TENER SU PROPIO CONTROLADOR.
+"CADA MODELO CREADO DEBE TENER SU PROPIO CONTROLADOR".
 
-Por ejemplo el MODELO WeatherForecast.cs tiene su CONTROLLADOR "WeatherForecastController.cs"
-
-
-El modelo WeatherForecast.cs básicamente es una clase que posee cada una de las propiedades que necesita el demo para poder alojar la información, y WeatherForecastController.cs es el encargado de manejar toda la lógica poder devolver o retornar los datos y exponer todas las funciones que afecten de alguna manera el modelo WeatherForecast.cs
+Por ejemplo el MODELO "WeatherForecast.cs" tiene su CONTROLADOR "WeatherForecastController.cs"
 
 
-Es muy importante, para los controladores, agregar al final del nombre "Controller" como lo tenemos en el ejemplo: WeatherForecastController.cs
+El modelo "WeatherForecast.cs" básicamente es una clase que posee cada una de las propiedades que necesita el demo para poder alojar la información, y "WeatherForecastController.cs" es el encargado de manejar toda la lógica: poder devolver o retornar los datos y exponer todas las funciones que afecten de alguna manera el Modelo "WeatherForecast.cs".
 
 
-Además de esto, los controladores, deben heredar de ControllerBase que nos brinda todas las funciones que necesitamos para poder realizar todos los códigos de respuesta que normalmente se debería de responder, utilizando el patrón REST.
+Es muy importante, para los Controladores, agregar al final del nombre la palabra "Controller", como lo tenemos en el ejemplo: "WeatherForecastController.cs".
 
 
-Otro archivo importante es la del proyecto con extensión .csproj
+Además de esto, los Controladores, deben Heredar de "ControllerBase", que nos brinda todas las funciones que necesitamos para poder realizar todos los códigos de respuesta que normalmente se debería responder, utilizando el patrón REST.
 
-El TargetFramework es donde se define la versión del Framework
 
-El SDK para el caso de WEBAPI siempre será web
+Otro archivo importante es la del proyecto, con extensión ".csproj".
+
+El "TargetFramework" es donde se define la versión del Framework.
+
+El SDK para el caso de WEBAPI siempre será web.
 
 El SDK posee una serie de librerías base que necesitamos para trabajar con alguna tecnología en particular.
-En este caso la tecnología que vamos a manejar es ASP.NET que nos permite manejar requerimientos o peticiones http que son las que utilizan las Apis Rest.
+
+En este caso la tecnología que vamos a manejar es ASP.NET que nos permite manejar requerimientos o peticiones http que son las que utilizan las APIs REST.
 
 el siguiente código:
 <ItemGroup>
@@ -345,12 +374,12 @@ el siguiente código:
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
   </ItemGroup>
 
-Es un paquete que nos permite trabajar con ASP.NETCORE, y es el paquete que contiene la documentacion de "Swagger" que ya veremos qué es y para qué sirve, pero básicamente nos ayuda a generar la documentación de nuestra API.
+Es un paquete que nos permite trabajar con ASP.NETCORE, y es el paquete que contiene la documentación de "Swagger" que ya veremos qué es y para qué sirve, pero básicamente nos ayuda a generar la documentación de nuestra API.
 
 
 
 
-PROGRAM.cs es el archivo que posee toda la configuración del proyecto y la forma en la que se va a ejecutar.
+"PROGRAM.cs" es el archivo que posee toda la configuración del proyecto y la forma en la que se va a ejecutar.
 
 
 
@@ -362,9 +391,9 @@ Normalmente, en "appsettings.Development.json" vamos a almacenar la conexion a u
 
 
 
-Luego dentro de la carpeta "Properties" se encuentra el archivo "launchSettings.json" que contiene como se va a ejecutar la API.
+Luego dentro de la carpeta "Properties" se encuentra el archivo "launchSettings.json" que contiene cómo se va a ejecutar la API.
 
-Siempre por defecto tiene dos perfiles: "webapi" y "IIS Express"
+Siempre por defecto tiene dos perfiles: "webapi" y "IIS Express".
 
 
 
@@ -380,9 +409,9 @@ Siempre por defecto tiene dos perfiles: "webapi" y "IIS Express"
 
 **********      Atributos para verbos HTTP      **********
 
-¿Cómo podemos utilizar los verbos http dentro de nuestro proyecto?
+¿Cómo podemos utilizar los Verbos http dentro de nuestro proyecto?.
 
-Para realizar esto utilizaremos los Atributos que existen dentro de .NET
+Para realizar esto utilizaremos los Atributos que existen dentro de .NET.
 
 Nos permiten marcar en una función cuál es el verbo que queremos utilizar.
 
@@ -421,7 +450,7 @@ public WeatherForecastController(ILogger<WeatherForecastController> logger)
 
 
 
-Al http get lo modificamos, ahora va a retornar la lista entera pero ya creada, a diferencia de la anterior, que por cada vez que de ejecutaba el método GET se creaban los registros aleatorios (Randoms), y luego los retornaba.
+Al http get lo modificamos, ahora va a retornar la lista entera pero ya creada, a diferencia de la anterior, que por cada vez que se ejecutaba el método GET se creaban los registros aleatorios (Randoms), y luego los retornaba.
 
 Asi quedó luego de las modificaciones:
 
@@ -462,10 +491,9 @@ Tambien creamos los métodos para POST y DELETE.
 
 Luego abrimos una nueva terminal y ejecutamos el proyecto.
 
-Ejecutamos dotnet run
-copiamos la url
+Ejecutamos "dotnet run" y copiamos la url.
 
-Luego nos dirigimos a Postman, agregamos una nueva ventana, pegamos la url con el verbo POST, le damos click a Body / raw y en vez de "Text" que viene por defecto, elegimos JSON, que es el formato por el cual vamos a pasar los datos.
+Luego nos dirigimos a Postman, agregamos una nueva ventana, pegamos la url con el verbo POST, le damos click a Body / raw y en vez de "Text", que viene por defecto, elegimos JSON, que es el formato por el cual vamos a pasar los datos.
 
 ESTA ES LA MANERA MÁS COMÚN DE PASAR LOS DATOS, ya que el formato JSON es el estándar.
 
@@ -501,26 +529,26 @@ Para el DELETE, desde Postman, utilizamos la url "http://localhost:5087/WeatherF
 **********      Manejo de Rutas      **********
 
 
-Aprendamos un poco mas respecto del manejo de las rutas utilizando el controlador que viene por defecto "WeatherForecastController".
+Aprendamos un poco más respecto del manejo de las rutas utilizando el Controlador que viene por defecto: "WeatherForecastController".
 
 Este código:
 [Route("[controller]")]
 es el que nos permite definir el enrutamiento de nuestro Controlador.
 
 
-el [controller] define que es una ruta dinámica, si cambia el nombre del Controlador, entonces la ruta también se va a modificar.
+El [controller] define que es una RUTA DINÁMICA, si cambia el nombre del Controlador, entonces la ruta también se va a modificar, pasará a tener el nuevo nombre del Controlador.
 
 
 Tambien podríamos agregar caracteres que sean estáticos, como por ejemplo:
 
 [Route("api/[controller]")]
 
-De manera que en este caso api queda fijo y el nombre dinámico del controlador para poder armar la ruta y acceder a los recursos.
+De manera que en este caso api queda fijo, y el nombre dinámico del controlador (es decir que [controller] sigue siendo dinámico), para poder armar la ruta y acceder a los recursos.
 
 
-Ahora abrimos una nueva terminal y ejecutamos "dotnet run", copiamos la url.
+Ahora abrimos una nueva terminal y ejecutamos "dotnet run", y copiamos la url.
 
-Si nos vamos a Postman e intentamos volver a ejecutar el GET de la clase anterior (sin cambiar nada), va a devolver error (404 Not Found), esto se debe a que la ruta para acceder al controlador ya no es la misma.
+Si nos vamos a Postman e intentamos volver a ejecutar el GET de la clase anterior (sin cambiar nada), va a devolver error (404 Not Found), esto se debe a que la ruta para acceder al Controlador ya no es la misma debido a que la hemos modificado.
 
 Antes era : http://localhost:5087/WeatherForecast
 
@@ -528,17 +556,17 @@ Mientras que ahora es : http://localhost:5087/api/WeatherForecast
 
 
 
-Asi como podemos realizar el enrutamiento a nivel de Controlador, también podemos hacerlo a nivel de las acciones o métodos dentro del Controlador.
+Asi como podemos realizar el "Enrutamiento a Nivel de Controlador", también podemos hacerlo "a Nivel de las Acciones o Métodos dentro del Controlador".
 
 Por ejemplo al verbo GET podemos agregarle la ruta:
 [Route("Get/weatherforecast")]
 
 en este caso estamos especificando que la ruta dentro del Controlador ("api/[controller]"), tenemos que agregarle "Get/weatherforecast" para poder acceder al método GET.
 
-Ejecutamos el dotnet run y verificamos esto en Postman.
+Ejecutamos el dotnet run y verifiquemos esto en Postman.
 
 
-Al irnos a Postman y ejecutamos el Verbo GET con la url http://localhost:5087/api/WeatherForecast va a funcionar igual ya que es el único método GET del Controlador.
+Ejecutamos, desde Postman, el Verbo GET con la url http://localhost:5087/api/WeatherForecast va a funcionar igual ya que es el único método GET del Controlador.
 
 Aún así si ejecutamos "http://localhost:5087/api/WeatherForecast/Get/weatherforecast" con el enrutamiento que recién definimos, también va a funcionar.
 
@@ -546,7 +574,9 @@ Aún así si ejecutamos "http://localhost:5087/api/WeatherForecast/Get/weatherfo
 
 
 Podemos tener múltiples rutas para una acción.
+
 Por ejemplo, recien creamos una ruta para el Verbo GET (  [Route("Get/weatherforecast")] )
+
 Ahora podemos agregar una ruta adicional:   [Route("Get/weatherforecast2")]
 
 
@@ -556,7 +586,7 @@ También podemos utilizar una PALABRA DINÁMICA a la hora de enrutar acciones.
 
 Para ello utilizamos la palabra [action]. Para los controladores utilizamos [controller].
 
-Esto nos permite utilizar el nombre que tenga el método para realizar el llamado del endopoint.
+Esto nos permite utilizar el nombre que tenga el método para realizar el llamado del Endopoint.
 
 De esta forma en Postman el GET se puede ejecutar de las siguientes maneras:
 
@@ -587,12 +617,16 @@ link ENRUTAMIENTO DE ATRIBUTOS : https://learn.microsoft.com/en-us/aspnet/web-ap
 
 **********      Minimal API vs. Web API      **********
 
-Son dos Templates que nos permite utilizar .NET
+Son dos Templates que nos permite utilizar .NET.
 
-El Minimal API se lanzó recientemente 
+El "Minimal API" se lanzó recientemente.
 
-- Nueva plantillacon un estilo minimalista. (Se utiliza una mínima cantidad de archivos para construir la API).
+Sus características son las siguientes: 
+
+- Nueva plantilla con un estilo minimalista. (Se utiliza una mínima cantidad de archivos para construir la API).
+
 - Utiliza las últimas mejoras de C# y .NET para disminuir las líneas de código.
+
 - Facilita la curva de aprendizaje de APIs en .NET.
 
 
@@ -611,7 +645,7 @@ Dentro del Program.cs la siguiente linea:
 
 app.MapGet("/", () => "Hello World!");
 
-es la manera en la que mapear la API.
+es la manera en la que mapea la API.
 
 
 En la WEBAPI teníamos que crear un Controlador y utilizar los atributos para realizar los POSTs, el GET, etc, en este template realizamos el mapeo utilizando funciones.
@@ -631,28 +665,35 @@ Para Delete:
 app.MapDelete()
 
 
-Todo desde el archivo Program.cs
+Todo desde el archivo "Program.cs".
 
 
 
 
-El MinimalApi esta preparado para proyecto pequeños/simples, ya cuando el proyecto sea grande, es decir, posea varios Endpoints,  lo ideal es utilizar el Template que vimos en clases anteriores, la WEBAPI.
+El "MinimalApi" esta preparado para proyectos pequeños/simples, ya que cuando el proyecto se agrande, es decir, posea varios Endpoints,  lo ideal es utilizar el Template que vimos en clases anteriores, la WEBAPI.
 
 
 
+DIFERENCIAS ENTRE MINIMAL API Y WEBAPI:
 
-CARACTERÍSTICAS MINIMAL API
+
+
+---- CARACTERÍSTICAS MINIMAL API ----
 
 - Utiliza mapeo de rutas con funciones.
+
 - Orientado a proyectos pequeños, demos, microservicios y Azure functions.
+
 - Complejo de escalar en proyectos de alta complejidad. El Program.cs va a crecer exponencialmente.
 
 
 
-CARACTERÍSTICAS WEBAPIs
+---- CARACTERÍSTICAS WEBAPIs ----
 
 - Utiliza modelo MVC para estructurar el código. Sin utilizar la Vista (V), se crean Controladores, Modelos, dentro de los Controladores se crean las acciones que se necesitan.
+
 - Se puede utilizar para proyectos de cualquier tamaño.
+
 - Más sencillo de escalar.
 
 
@@ -675,15 +716,24 @@ CARACTERÍSTICAS WEBAPIs
 **********      ¿Qué son los Middlewares?      **********
 
 - Es una serie de instrucciones de código que se agregan al ciclo de vida de una petición HTTP.
-  Ya hemos realizado peticiones GET, POST. Cada vez que realizamos una petición, lo que sucede es que la petición va a ingresar en una línea de diferentes MIDDLEWARES que van afectar de alguna manera esa petición, van a realizar el procesamiento debido para devolver lo que el usuario está esperando.
-Basicamente esto es lo que realizan los Middlewares, un tratamiento desde que inician los request hasta que devuelvan un resultado, ya sea un simple OK o información proveniente de la base de datos.
+
+Ya hemos realizado peticiones GET, POST.
+Cada vez que realizamos una petición, lo que sucede es que la petición va a ingresar en una línea de diferentes MIDDLEWARES que van afectar de alguna manera esa petición, van a realizar el procesamiento debido para devolver lo que el usuario está esperando.
+Basicamente esto es lo que realizan los Middlewares, un tratamiento desde que inician los request hasta que devuelvan un resultado, ya sea un simple OK o alguna información proveniente de la Base de Datos.
+
+
 
 - Provee una ejecución de peticiones a través de capas.
-  Esto nos permite entender muy bien cuál es la línea de tiempo que va a tener el Request desde su inicio hasta su fin, de esta manera podemos saber dónde queremos crear el Middleware o agregarlo para poder realizar ese cambio que buscamos dentro del Request.
+
+Esto nos permite entender muy bien cuál es la línea de tiempo que va a tener el Request desde su inicio hasta su fin, de esta manera podemos saber dónde queremos crear el Middleware o agregarlo para poder realizar ese cambio que buscamos dentro del Request.
+
+
 
 - Facilitan la implementación de interceptores y filtros sobre las peticiones en una API.
-  Con los Middlewares se facilita la visualización de la secuencia de comandos que se ejecutan por cada petición.
-  A su vez podemos implementar Custom Middleware, es decir, Middlewares personalizados con el código que nosotros necesitemos para poder interceptar un Request y agregar algún comportamiento extra.
+
+Con los Middlewares se facilita la visualización de la secuencia de comandos que se ejecutan por cada petición.
+A su vez, podemos implementar "Custom Middleware", es decir, Middlewares personalizados con el código que nosotros necesitemos para poder interceptar un Request y agregar algún comportamiento extra.
+
 
 
 
@@ -692,7 +742,8 @@ Basicamente esto es lo que realizan los Middlewares, un tratamiento desde que in
 FUNCIONAMIENTO DE UN MIDDLEWARE:
 
 Cada vez que se realiza un Request, este va a tener que pasar por todas las líneas de Middlewares que posee .NET.
-A estas líneas de Middlewares se les llama Pipelines. Esto indica que va haber una secuencia de comandos que se deben ejecutar uno tras otro para poder completar 1 CICLO. Para este caso sería EL CICLO DE VIDA DEL REQUEST, desde que se incia hasta que responde.
+
+A estas "Líneas de Middlewares" se los denomina como "Pipelines". Esto indica que va haber una secuencia de comandos que se deben ejecutar uno tras otro para poder completar 1 CICLO. Para este caso sería EL CICLO DE VIDA DEL REQUEST, desde que inicia hasta que responde.
 
 
 
@@ -713,8 +764,7 @@ Procedemos a abrir nuestro proyecto en VSCODE.
 Los Middlewares estan dentro del Program.cs
 
 Una vez escrito el Middleware "app.UseWelcomePage();" hay que abrir una nueva terminal y ejecutar el proyecto.
-Ejecutamos dotnet run
-Copiamos la url y lo pegamos en el navegador donde nos saldrá la página de bienvenida.
+Ejecutamos "dotnet run", copiamos la url y lo pegamos en el navegador donde nos saldrá la página de bienvenida.
 
 
 
@@ -743,18 +793,18 @@ En VSCODE creamos una nueva carpeta "Middleware". Dentro de ella creamos "TimeMi
 Lo que va a realizar es devolver la hora que el servidor tenga, sin importar cuál sea el Request que se esté realizando, sino simplemente se va a analizar el parámetro que venga dentro del Request.
 
 
- El método Invoke viene por defecto en todos los Middlewares.
+El método "Invoke" viene por defecto en todos los Middlewares.
 
-Una vez creado Middleare/TimeMiddleware.cs y el app.MapControllers() en el Program.cs, abrimos una nueva terminal y ejecutamos "dotnet run" copiamos el http y nos dirigimos a Postman.
+Una vez creado "Middleare/TimeMiddleware.cs" y el "app.MapControllers()" en el "Program.cs", abrimos una nueva terminal y ejecutamos "dotnet run", copiamos el http y nos dirigimos a Postman.
 
 En el método GET pegamos la url, por ejemplo https://localhost:7182?time
-estamos preguntando por el tiempo, y en el if creado en el Middleare/TimeMiddleware.cs es True por lo que retorna la hora.
+estamos preguntando por el tiempo, y en el if creado en el "Middleare/TimeMiddleware.cs" es True por lo que retorna la hora.
 
 
-A los efectos prácticos, al realizar un proyecto real, podríamos llegar a utilizar Middlewares como por ejemplo para realizar Logins o realizar una bitácora para todos los request que se estén realizando e interceptarlos y guardar la información, o inteceptar todos los request que han tenido errores y guardarlos en algún archivo o algún servicio para luego realizar análisis. Para todo esto los Middlewares son la mejor herramienta.
+A los efectos prácticos, al realizar un proyecto real, podríamos llegar a utilizar "Middlewares" como por ejemplo para realizar Logins o realizar una bitácora para todos los request que se estén realizando e interceptarlos y guardar la información, o interceptar todos los request que han tenido errores y guardarlos en algún archivo o algún servicio para luego realizar análisis. Para todo esto los Middlewares son la mejor herramienta.
 
 
-En la próxima clase aprenderemos un concepto que nos permitirá configurar todos los servicios, herramientas y demás que se utilizará dentro de nuestra aplicación para que facilmente podamos inyectarlos dentro de cada uno de los elementos o componentes que lo requieran y de esta manera poder tener un control general de todas las dependencias que posea nuestra aplicación.
+En la próxima clase aprenderemos un concepto que nos permitirá configurar todos los servicios, herramientas y demás que se utilizará dentro de nuestra aplicación para que fácilmente podamos inyectarlos dentro de cada uno de los elementos o componentes que lo requieran y de esta manera poder tener un control general de todas las dependencias que posea nuestra aplicación.
 
 
 También veremos porqué es una buena práctica implementar la "inyección de dependencias" en nuestro proyecto.
@@ -781,48 +831,50 @@ También veremos porqué es una buena práctica implementar la "inyección de de
 
 Aprenderemos a cómo podemos inyectar dependencias dentro de nuestro WebApi.
 
-La inyección de dependencias es un concepto altamente utilziados en lenguajes de programación orientados a objetos.
+La inyección de dependencias es un concepto altamente utilizado en lenguajes de programación orientados a objetos.
 
-Nos permite utilizar diferentes tipos abstractos y configurar las dependencias utilizando un inyector y de esta manera nos evitamos tener que crear un nuevo objeto o una nueva referencia del componente cada vez que lo necesitemos sino que el inyector se encargaría de pasarnos esa dependencia y podemos utilizarla directamente dentro de los componentes que lo necesitemos ya sea una clase o un controlador en el caso de una WebApi.
+Nos permite utilizar diferentes tipos abstractos y configurar las dependencias utilizando un inyector y de esta manera nos evitamos tener que crear un nuevo objeto o una nueva referencia del componente cada vez que lo necesitemos sino que el inyector se encargaría de pasarnos esa dependencia y podemos utilizarla directamente dentro de los componentes que lo necesitemos ya sea una clase o un Controlador en el caso de una WebApi.
 
 
-Crearemos una dependencia muy sencilla y realizaremos todo el proceso desde la creación, la inyección y luego su utilización dentro de un controlador.
+Crearemos una dependencia muy sencilla y realizaremos todo el proceso desde la creación, la inyección y luego su utilización dentro de un Controlador.
 
 
 
 
 Vamos para VsCode:
 
-Creamos una nueva carpeta, la vamos a llamar Services.
+Creamos una nueva carpeta, la vamos a llamar "Services".
 
-Creamos un "HelloworldService.cs" que será una clase. Dentro de ella creamos un método que retornará el Hello World.
+Creamos un "HelloworldService.cs" que será una clase. Dentro de ella creamos un método que retornará el "Hello World".
 
 Además vamos a crear una Interface (IHelloWorldService), que nos va ayudar a manejar un tipo abstracto que vamos a poder cambiar fácilmente luego, y nos ayudará a inyectar las dependencias.
 
 Luego realizamos la configuración del inyector para que se pueda inyectar la dependencia.
-Para ello vamos al Program, la dependencia la debemos establecer antes del "var app = builder.Build();"
+Para ello vamos al "Program.cs", la dependencia la debemos establecer antes del "var app = builder.Build();"
 
-Podemos utilizar "AddScoped<>", el cual crea una nueva instancia, de la dependencia utilizada, a nivel de controlador o a nivel de clase, es decir, no importa que estemos inyectando varias veces y en diferentes partes esta dependencia dentro de todo el contexto del controlador, o dentro de todo el contexto de la clase, se va a inyectar la misma implementación, es decir, la misma instancia que se creó para todo este elemento .
+Podemos utilizar "AddScoped<>", el cual crea una nueva instancia, de la dependencia utilizada, a nivel de controlador o a nivel de clase, es decir, no importa que estemos inyectando varias veces y en diferentes partes esta dependencia dentro de todo el contexto del Controlador, o dentro de todo el contexto de la clase, se va a inyectar la misma implementación, es decir, la misma instancia que se creó para todo este elemento.
 
-A su vez podemos utilizar "AddSingleton<>", el cual crea una única instancia de la dependencia a nivel de toda la API. No se recomienda utilizarlo ya que las dependencias se van a crear en memoria y esto podría ocasionar un problema además de no seguir la tendencia de implementar Apis que no manejen ningún tipo de estados sino que con cada Request se cree una nueva implementación o que se cree una nueva instancia de la dependencia que hemos configurado.
+A su vez podemos utilizar "AddSingleton<>", el cual crea una única instancia de la dependencia a nivel de toda la API.
+No se recomienda utilizarlo ya que las dependencias se van a crear en memoria y esto podría ocasionar un problema además de no seguir la tendencia de implementar APIs que no manejen ningún tipo de estados sino que con cada Request se cree una nueva implementación o que se cree una nueva instancia de la dependencia que hemos configurado.
 
-Lo recomendado es utilizar AddTransient, o el más utilizado AddScoped, ya que normalmente se inyecta la dependencia por el constructor del controlador.
+Lo recomendado es utilizar "AddTransient", o el más utilizado "AddScoped", ya que normalmente se inyecta la dependencia por el Constructor del Controlador.
 
 
-//Cada vez que se inyecte la interface  IHelloWorldService  se va a crear un nuevo objeto de HelloWorldService internamente, es lo que va a realizar el inyector.
+//Cada vez que se inyecte la interface "IHelloWorldService" se va a crear un nuevo objeto de "HelloWorldService" internamente, es lo que va a realizar el inyector.
+
 builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();
 
 
-Finalmente creamos un nuevo controlador que utilice esta dependencia que acabamos de configurar.
+Finalmente creamos un nuevo Controlador que utilice esta dependencia que acabamos de configurar.
 
 Para ello nos dirigimos a la carpeta de "Controllers", creamos un nuevo archivo "HelloWorldController.cs"
 
 
-Copiamos del "WeatherForecastController" las siguientes líneas (ya que son indispensables para crear controladores):
+Copiamos del "WeatherForecastController.cs" las siguientes líneas (ya que son indispensables para crear Controladores):
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace webapi.Controllers;
+namespace webapi.Controllers;//Este es el namespace del archivo
 
 [ApiController]
 
@@ -833,18 +885,20 @@ namespace webapi.Controllers;
 Otra cuestión importante es que el nombre de la clase debe finalizar con la palabra "Controller", y dicha clase heredar de "ControlBase".
 
 
-Realizamos el dotnet run y nos dirijimos a Postman.
+Ejecutamos desde la Terminal, dotnet run y nos dirijimos a Postman.
 
 
-Utilizamos la misma url, realizamos un GET mediante "url/api/helloworld" al ejecutarlo nos va a devolver el OK y el HelloWorld desde la inyección de dependencia que establecimos mediante la interface y la clase.
-Vemos lo fácil que es crear los servicios las herramientas y todo lo que queramos dentro de nuestro proyecto, podemos inyectar todas las que necesitemos, simplemente los separamos por comas dentro del constructor y poco a poco vamos agregando cada una de las dependencias y las vamos utilizando dentro del Controlador.
+Utilizamos la misma url, realizamos un GET mediante "url/api/helloworld", al ejecutarlo nos va a devolver el OK y el "HelloWorld" desde la inyección de dependencia que establecimos mediante la interface y la clase.
+
+Vemos lo fácil que es crear los Servicios, las herramientas y todo lo que queramos dentro de nuestro proyecto, podemos inyectar todas las que necesitemos, simplemente los separamos por comas dentro del Constructor y poco a poco vamos agregando cada una de las dependencias y las vamos utilizando dentro del Controlador.
 
 
 
 
-Ahora vamos a ver cómo podemos inyectar las dependencias sin utilizar una Interface sino directamente con una clase, esto no es una buena práctica, pero se suele utilizar cuando se requiere una conexión a una base de datos o conexión a servicios en donde s+i es importante utilizar "Scoped" ó "Transient" y utilizar Interfaces.
+Ahora vamos a ver cómo podemos inyectar las dependencias sin utilizar una Interface sino directamente con una clase, ESTO NO ES UNA BUENA PRÁCTICA, pero se suele utilizar cuando se requiere una conexión a una Base de Datos o conexión a servicios en donde sí es importante utilizar "Scoped" ó "Transient" y utilizar Interfaces.
 
-Vamos para VSCode, al Program.cs
+Vamos para VSCode, al "Program.cs".
+
 Comentamos el Services que creamos:
 builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();
 
@@ -858,7 +912,7 @@ Luego ejecutamos dotnet run y lo probamos en Postman.
 
 
 
-En la siguiente clase veremos el concepto de Login, que basicamente nos permite escibir diferentes tipos de mensajes, incluyendo errores, dentro de la consola para poder realizar un monitoreo de al aplicación y poder entender qué está ocurriendo internamente, sobre todo cuando se tenga errores no controlados.
+En la siguiente clase veremos el concepto de Logging, que basicamente nos permite escibir diferentes tipos de mensajes, incluyendo errores, dentro de la consola para poder realizar un monitoreo de la aplicación y poder entender qué está ocurriendo internamente, sobre todo cuando se tenga errores no controlados.
 
 
 
@@ -885,13 +939,13 @@ El Logging nos permite realizar una trazabilidad de lo que está ocurriendo dent
 
 Lleva un registro de las acciones.
 
-Podemos agregarlo en cualquier punto, en cualquier funcionalidad que tengamos dentro de la API, ya sea en un controlador o en una clase en específica.
+Podemos agregarlo en cualquier punto, en cualquier funcionalidad que tengamos dentro de la API, ya sea en un Controlador o en una clase en específica.
 
 
 
 Nos dirigimos a VSCode.
 
-En nuestro controlador "WeatherForecastController.cs" tenemos una implementación de Logging:
+En nuestro Controlador "WeatherForecastController.cs" tenemos una implementación de Logging:
 
 private readonly ILogger<WeatherForecastController> _logger;
 
@@ -905,12 +959,12 @@ y lo recibe por el constructor:
 
 
 
-Una vez recibido en el constructor, ya podemos utilizarlo en cualquier parte de la aplicación.
+Una vez recibido en el Constructor, ya podemos utilizarlo en cualquier parte de la aplicación.
 
 
 
 
-En nuestro método GET() agregamos los siguiente:
+En nuestro método GET() agregamos lo siguiente:
 
 _logger.LogInformation("Retornando la lista de weatherforecast");
 
@@ -922,7 +976,7 @@ Esto es muy importante para cuando la Aplicación esté en la nube y queramos sa
 
 
 
-Como reto realizaremos lo mismo en HelloWorldController.cs
+Como reto realizaremos lo mismo en "HelloWorldController.cs".
 
 Agregarmos un logger dentro de las propiedades, la recibimos por el constructor, y en el método GET():
 
@@ -943,16 +997,16 @@ En "appsettings.Development.json" también tenemos la misma configuración.
 
 
 
-El "LogLevel" nos dice cuál es cuál es el nivel de error que se va a mostrar por consola al momento en que la aplicación se esté ejecutando.
+El "LogLevel" nos dice cuál es el nivel de error que se va a mostrar por consola al momento en que la aplicación se esté ejecutando.
 
 
-Para mayor información nos dirigimos a "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0"
+Para mayor información dirigirse a: "https://learn.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-6.0"
 
 
 Los niveles son : Trace = 0, Debug = 1, Information = 2, Warning = 3, Error = 4, Critical = 5, and None = 6. 
 
 
-Si definimos el nivel de un Log como "Information", entonces los niveles de "Debug" y "Trace" no se van a tener en cuentra al momento de mostrar por consola.
+Si definimos el nivel de un Log como "Information", entonces los niveles de "Debug" y "Trace" no se van a tener en cuenta al momento de mostrar por consola.
 
 Se determina qué nivel de error es el que queremos capturar.
 
@@ -970,11 +1024,24 @@ Mientras tanto en los "appsettings.json" mantenemos el loglevel default:"Informa
 
 
 Ejecutamos el dotnet run, y vamos a Postman a probar.
-Ejecutamos el GET() desde Postman, veremos que en la Terminal de VSCode no va aparecer nada y esto se debe a que el "LogLevel" está por Default en Information en los appsettings.json; cambiamos el "Information" por "Debug" y realizamos los mismos pasos, ejecutamos el dotnet run, vamos a Postman ejecutamos el GET(), y ya en la Terminal de VSCode nos aparecerá el mensaje que hemos definido.
+
+
+
+
+Ejecutamos el GET() desde Postman, veremos que en la Terminal de VSCode no va aparecer nada.
+
+Esto se debe a que el "LogLevel" está por Default en Information en los "appsettings.json".
+
+Cambiamos el "Information" por "Debug" y realizamos los mismos pasos, ejecutamos el dotnet run, vamos a Postman.
+
+Ejecutamos el GET(), y ya en la Terminal de VSCode nos aparecerá el mensaje que hemos definido.
 
 Vemos la importancia de definir el Level si estamos en un ambiente de Desarrollo o Producción.
 
-En la próxima clase aprenderemos acerca de "Swagger", es una herramienta que nos permite implementar la documentación de nuestra API, y que en el Template que hemos utilizado para crear nuestra API, viene por defecto.
+
+
+
+En la próxima clase aprenderemos acerca de "Swagger", que es una herramienta que nos permite implementar la documentación de nuestra API, y que en el Template que hemos utilizado para crear nuestra API, viene por defecto.
 
 No nos tendremos que instalar ninguna librería gracias a que el Template lo trae por defecto y viene incluído como una herramienta más.
 
@@ -998,7 +1065,7 @@ No nos tendremos que instalar ninguna librería gracias a que el Template lo tra
 
 **********      Documentación API con Swagger      **********
 
-Swagger viene por defecto dentro de la plantilla que utilizamos para nuestra WebAPI. 
+"Swagger" viene por defecto dentro de la plantilla que utilizamos para nuestra WebAPI. 
 
 En "webapi.csproj" tenemos el paquete "Swashbuckle.AspNetCore" que posee la librería que nos permitirá poder implementar Swagger en nuestro proyecto.
 
@@ -1006,6 +1073,7 @@ En la clase "Program.cs" nos encontramos con:
 
 
 builder.Services.AddSwaggerGen(); 
+
 Acá se establece una dependencia, los servicios son las dependencias. Agrega diferentes servicios que serán utilizados por los componentes internos de la aplicación, que en este caso son: (también están dentro del Program.cs)
 
 if (app.Environment.IsDevelopment())
@@ -1014,41 +1082,44 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();//Esto es un Middleware
 }
 
-que básicamente configuran Swagger internamente para poder desplegar una pequeña página web que que incluye toda la definición de la API. 
+Que básicamente configuran Swagger internamente para poder desplegar una pequeña página web que incluye toda la definición de la API. 
+
 
 app.UseSwagger(); intercepta la configuración general que tiene la API para poder diseñar la documentación.
 
 
 
-Vayamos a la práctica.
 
-Ejecutamos nuestro proyecto con dotnet run copiamos la url y nos dirigimos a nuestro Navegador.
+
+¡Vayamos a la práctica!
+
+Ejecutamos nuestro proyecto con dotnet run, copiamos la url y nos dirigimos a nuestro Navegador.
 
 Pegamos la URL, pero al final le agregamos /swagger
 
 
 Si nos aparece el mensaje "Failed to load API definition."
 
-Puede ser a que se deba con la configuración de nuestra API en cuanto a rutas, ya que Swagger utiliza un estándar conocido como "OpenAPI", es muy importante que nuestra API siga este estándar para que Swagger genere la documentación de manera correcta.
+Puede ser que se deba a la configuración de nuestra API en cuanto a rutas, ya que Swagger utiliza un estándar conocido como "OpenAPI", es muy importante que nuestra API siga este estándar para que Swagger genere la documentación de manera correcta.
 
 En nuestro caso tenemos que agregar "[HttpGet]" en nuestro "HelloWorldController.cs" antes del método GET para indicar cuál es el medio por el cual se va a acceder al método GET.
 
 En el caso del "WeatherForecastController.cs" vamos a comentar las rutas quedando una sola para ejecutarse, en este caso dejamos "[HttpGet(Name = "GetWeatherForecast")]".
 
 
-Luego volvemos a ejecutar nuestro proyecto con "dotnet run" copiamos la url y la pegamos en el Navegador.
+Luego volvemos a ejecutar nuestro proyecto con "dotnet run", copiamos la url y la pegamos en el Navegador.
 
 
-Allí nos saldrá los dos controladores que estamos manejando en el Proyecto: "HelloWorld" y "WeatherForecast".
+Allí nos saldrá los dos Controladores que estamos manejando en el Proyecto: "HelloWorld" y "WeatherForecast".
 
-Si queremos probarlos, podemos acceder a una de ellas, hacer click en "try it out" luego en "Excecute".
+Si queremos probarlos, podemos acceder a una de ellas, haciéndo click en "try it out" luego en "Excecute".
 
 
 
 Swagger también es una muy buena herramienta para realizar pruebas sobra la API, pero se utiliza más para el tema de la documentación.
 
 
-En la próxima clase utilizaremos todo lo que hemos aprendido hasta el momento para crear un proyecto que se asemeje a uno real, en el que vamos a reutilizar algunas porciones de código pero vamos a realizar toda la configuración de los servicios, los controladores y al final nos conectaremos a una Base de Datos real.
+En la próxima clase utilizaremos todo lo que hemos aprendido hasta el momento para crear un proyecto que se asemeje a uno real, en el que vamos a reutilizar algunas porciones de código pero vamos a realizar toda la configuración de los Servicios, los Controladores y al final nos conectaremos a una Base de Datos real.
 
 
 
@@ -1081,25 +1152,26 @@ Optamos por la opción "Microsoft.EntityFrameworkCore".
 
 Elegimos una de las versiones que no sea Preview, copiamos la url y la pegamos en la terminal desde VSCode.
 
-De esta manera ya tenemos Entity Framework!
+¡De esta manera ya tenemos Entity Framework!
 
 
 
 
 Volvemos a "https://www.nuget.org/" y ahora buscamos "Entity Framework in memory", elegimos "Microsoft.EntityFrameworkCore.InMemory", que nos permitirá manejar una Base de Datos en Memoria para realizar pruebas.
 
-Elegimos la versión, copiamos el link, nos dirigimos a la Terminal de VSCode y pegamos la url para la instalación.
+Elegimos la versión correcta (que no sea preview), copiamos el link, nos dirigimos nuevamente a la Terminal de VSCode y pegamos la url para la instalación.
 
 
 
 
 Volvemos a "https://www.nuget.org/" y ahora buscamos "Entity Framework sql server", que es el motor al que vamos a conectarnos.
+
 Copiamos la url de la versión más estable y la pegamos en la Terminal de VSCode para instalarlo.
 
 
-Con esto ya hemos instalado las librerías base que necesitamos para desarrollar los controladores y servicios que vamos agregar a nuestro proyecto.
+Con esto ya hemos instalado las librerías base que necesitamos para desarrollar los Controladores y Servicios que vamos agregar a nuestro proyecto.
 
-En la próxima clase reutilizaremos unos modelos y una configuración de Entity Framework utilizando "Fluent API" que ya tenemos predefinida de otro proyecto y lo vamos a incluír dentro del proyecto para poder implementar los servicios y controladores para acceder a esta configuración.
+En la próxima clase reutilizaremos unos Modelos y una configuración de Entity Framework utilizando "Fluent API" que ya tenemos predefinida de otro proyecto y lo vamos a incluír dentro del proyecto para poder implementar los Servicios y Controladores para acceder a esta configuración.
 
 
 
@@ -1123,7 +1195,7 @@ En la próxima clase reutilizaremos unos modelos y una configuración de Entity 
 
 **********      Configuración de Entity framework y clases base      **********
 
-Nos descargamos los recursos necesarios para esta clase (Arhivos ya creados en el curso de "Fundamentos de Entity Framework")
+Nos descargamos los recursos necesarios para esta clase (Arhivos ya creados en el curso de "Fundamentos de Entity Framework"),
 "TareasContext.cs" es básicamente la configuración de Entity Framework.
 Dentro de la carpeta de Models, tenemos "Categoría.cs" (nos permitirán clasificar esas tareas que nosotros creemos) y "Tarea.cs"(nos ayudará a crear diferentes tareas ya sean personales o profesionales).
 
@@ -1136,7 +1208,9 @@ Para verificar que el código esté funcionando correctamente abrimos una nueva 
 
 El contexto de Entity Framework siempre va a heredar de "DbContext".
 
+
 "OnModelCreating" es un método de Entity Framework.
+
 Es en donde tenemos las configuraciones de todas las tablas, a este modelo se lo conoce como "Fluent API", basicamente es la configuración de la base de datos utilizando diferentes métodos de extensión que tiene esta funcionalidad de Entity Framework, llamada "Fluent API".
 
 
@@ -1151,11 +1225,13 @@ Con "HasMaxLength()" podemos establecer el máximo de caracteres admitido.
 
 "HasData()" nos permite agregar datos iniciales.
 
-Con el "HasOne()" inidicamos a la tabla que esté del lado de uno y con "WithMany()" a la tabla que esté del lado de muchos. Con "HasForeignKey()" establecemos a la clave foránea.
+Con "HasOne()" inidicamos a la tabla que esté del lado de uno y con "WithMany()" a la tabla que esté del lado de muchos. 
+
+Con "HasForeignKey()" establecemos a la clave foránea.
 
 
 
-En la próxima clase crearemos Servicios para consumir este Contexto de Entity Framework y adicionalmente crear los controladores para traer guardar editar eliminar datos y realizar las acciones que normalmente se hacen en un Contexto de API sobre un modelo de Entity Framework.
+En la próxima clase crearemos Servicios para consumir este Contexto de Entity Framework y adicionalmente crear los Controladores para traer, guardar, editar, eliminar datos y realizar las acciones que normalmente se hacen en un Contexto de API sobre un modelo de Entity Framework.
 
 
 
@@ -1181,14 +1257,14 @@ En la próxima clase crearemos Servicios para consumir este Contexto de Entity F
 
 Estamos en condiciones de crear los servicios.
 
-Los Servicios, dentro de la API, son los que poseen toda la lógica para poder comunicarse con la base de datos, en este caso, utilizando Entity Framework, y se encarga de atender todas las acciones que al final van a ser ejecutadas desde los Controladores.
+Los Servicios, dentro de la API, son los que poseen toda la lógica para poder comunicarse con la Base de Datos, en este caso, utilizando Entity Framework, y se encarga de atender todas las acciones que al final van a ser ejecutadas desde los Controladores.
 
-De esta manera, los Controladores serían los que consumirían estos servicios y ejecutarían cada una de las acciones que configuremos en los servicios.
+De esta manera, los Controladores serían los que consumirían estos Servicios y ejecutarían cada una de las acciones que configuremos en los Servicios.
 
 
 Vamos para VSCode.
 
-Arrancamos creando un servicio para cada uno de los modelos (Models), es decir, para "Categoria.cs" y "Tarea.cs".
+Arrancamos creando un Servicio para cada uno de los Modelos (Models), es decir, para "Categoria.cs" y "Tarea.cs".
 
 Una vez hecho esto debemos ejecutar el comando "dotnet run" ó "dotnet build" para verificar que el código esté compilando.
 
@@ -1197,7 +1273,7 @@ Una vez hecho esto debemos ejecutar el comando "dotnet run" ó "dotnet build" pa
 De esta manera hemos configurado los Servicios.
 
 
-En la proxima clase vamos a crear la configuración de "Inyección de Dependencias" para estos nuevos servicios que acabamos de crear.
+En la proxima clase vamos a crear la configuración de "Inyección de Dependencias" para estos nuevos Servicios que acabamos de crear.
 
 
 
@@ -1221,34 +1297,36 @@ En la proxima clase vamos a crear la configuración de "Inyección de Dependenci
 
 **********      Inyectando servicios como dependencia      **********
 
-En la clase anterior creamos servicios para nuestros dos modelos (Tarea y Categoría).
+En la clase anterior creamos Servicios para nuestros dos Modelos (Tarea y Categoría).
 
-Ahora con esa implementación de servicios que poseen toda la lógica para poder traer eliminar y actualizar datos dentro de la base de datos, utilzando Entity Framework... lo que vamos a hacer ahora es realizar la configuración de inyección de dependencias para estos servicios, utilizando las herramientas que tiene por defecto el proyecto WEBAPI de .NET.
+Ahora con esa implementación de Servicios que poseen toda la lógica para poder traer, eliminar, y actualizar datos dentro de la Base de Datos, utilizando Entity Framework... lo que vamos a hacer ahora es realizar la configuración de Inyección de Dependencias para estos Servicios, utilizando las herramientas que tiene por defecto el proyecto WEBAPI de .NET.
 
 
 
-Vamos para VSCode y realicemos las inyecciones de dependencias para "CategoriaService.cs" y "TareaService.cs".
+Vamos para VSCode y realicemos las Inyecciones de Dependencias para "CategoriaService.cs" y "TareaService.cs".
 
 Recordemos que en la Clase "Program.cs" es donde se encuentra toda esta configuración.
 
-Ya tenemos un ejemplo de cómo realizar una inyección de dependencias:
+Ya tenemos un ejemplo de cómo realizar una Inyección de Dependencias:
 
-builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();//Buena práctica estamos haciendo uso de las interfaces
+builder.Services.AddScoped<IHelloWorldService, HelloWorldService>();//Buena práctica, estamos haciendo uso de las interfaces
 
 ó
 
 builder.Services.AddScoped<IHelloWorldService>(p=> new HelloWorldService());//Mala practica, no utilizamos interface, sino directamente la clase.
-Sin embargo, esto último se utiliza cuando necesitamos pasar algo por parámetro, algo concreto dentro de la clase que estamos implementando entonces es mucho mas conveniente realizar el new y pasar la cantidad de parámetros necesarios.
+
+Sin embargo, esto último se utiliza cuando necesitamos pasar algo por parámetro, algo concreto dentro de la clase que estamos implementando, entonces es mucho mas conveniente realizar el new y pasar la cantidad de parámetros necesarios.
 
 
 
-Una vez hayamos establecido las inyecciones de dependencias, los servicios estarán listos para utilizarse dentro de un Controlador, por lo que en la siguiente clase crearemos el Controlador.}
+Una vez hayamos establecido las Inyecciones de Dependencias, los Servicios estarán listos para utilizarse dentro de un Controlador, por lo que en la siguiente clase crearemos el Controlador.
 
 
-De esta manera finalizamos con la configuración de dependencias de nuestros Servicios, ahora estamos listos para avanzar al último paso de la implementación que es crear los Controladores que van a exponer estos métodos que hemos creado en los servicios.
+De esta manera finalizamos con la configuración de Dependencias de nuestros Servicios, ahora estamos listos para avanzar al último paso de la implementación que es crear los Controladores que van a exponer estos métodos que hemos creado en los Servicios.
 
 Esta estructura que estamos creando normalmente se utiliza en proyectos reales.
-También podríamos haber inyectado directamente Entity Framework como dependencia a los Controladores y allí escribir la lógica, sin embargo, cuando el proyecto empieza a crecer y en especial a nivel de código, va ser muy difícil de mantener cuando tenemos lógica muy compleja, lo ideal, para que el proyecto pueda crecer, es utilizar los servicios y separar esa lógica para que los Controladores simplemente tenga que llamar al servicio y devolver lo que el servicio o la lógica que el servicio ejecuta.
+
+También podríamos haber inyectado directamente Entity Framework como dependencia a los Controladores y allí escribir la lógica, sin embargo, cuando el proyecto empiece a crecer y en especial a nivel de código, va ser muy difícil de mantener cuando tenemos lógica muy compleja, lo ideal, para que el proyecto pueda crecer, es utilizar los Servicios y separar esa lógica para que los Controladores simplemente tenga que llamar al Servicio y devolver lo que el Servicio o la lógica que el Servicio ejecuta.
 
 Basicamente estamos aplicando las mejores prácticas en la construcción de esta API.
 
@@ -1282,7 +1360,7 @@ En la última clase hemos realizado la configuración para poder inyectar estos 
 
 En esta clase crearemos los Controladores para exponer en la API estos métodos que hemos creado previamente.
 
-Esta Estructura es lo que se realizaría en un Proyecto Real utilizando Buenas Prácticas.
+Esta Estructura es lo que se realizaría en un Proyecto Real empleando Buenas Prácticas.
 
 
 
@@ -1299,7 +1377,9 @@ Posterior a ello realizamos lo mismo para "TareaControllers.cs"
 
 
 
-Listo ya tenemos los controladores listo para pasar al siguiente paso que es conectarnos a una Base de Datos y empezar a realizar pruebas con toda esta implementación.
+Listo ya tenemos los Controladores.
+
+Estamos listos para pasar al siguiente paso que es conectarnos a una Base de Datos y empezar a realizar pruebas con toda esta implementación.
 
 Ahora que ya tenemos listos los Controladores para exponer los métodos que habíamos realizado en los Servicios tanto como para Categoria como para Tarea, vamos al siguiente paso en el que vamos a terminar de configurar Entity Framework para que se conecte a una Base de Datos y podamos probar todo lo que hemos realizado, toda la implementación de Servicios y Controladores.
 
@@ -1326,14 +1406,14 @@ Ahora que ya tenemos listos los Controladores para exponer los métodos que hab�
 
 
 
-**********      Probando API con una base de datos SQL server      **********
+**********      Probando API con una Base de Datos SQL Server      **********
 
-Ya tenemos todos los elementos en nuestra API para poder realizar la prueba que estabamos esperando, una prueba con una base de datos real.
+Ya tenemos todos los elementos en nuestra API para poder realizar la prueba que estabamos esperando, una prueba con una Base de Datos real.
 
 Tenemos los Servicios, los Controladores que estan exponiendo esos métodos que necesitan los Servicios, y ahora por último lo que vamos a realizar es conectar la Lógica que tenemos a la Base de Datos y probar que cada una de las acciones estén funcionando correctamente.
 
 
-Existen varios recursos en este curso para trabajar con otras Base de Datos diferentes a SQL Server, como puede ser Postgres SQL éste corre muy bien en SO como LINUX y MAC.
+Existen varios recursos en este curso para trabajar con otras Base de Datos diferentes a SQL Server, como puede ser Postgres SQL, éste corre muy bien en sistemas operativos como LINUX y MAC.
 
 
 
@@ -1359,25 +1439,29 @@ builder.Services.AddScoped<ICategoriaService, CategoriaService>();
 
 
 
-No obstante, si vamos a uno de los servicios, por ejemplo a "CategoriaService.cs" tiene en su estado:
+No obstante, si vamos a uno de los Servicios, por ejemplo a "CategoriaService.cs" tiene en su estado:
 
 TareasContext context;
 
 
-Esto necesita como dependencia Entity Framework, pero dentro del "Program.cs" no tenemos esa configuración, por lo que tenemos un problema, los Servicios que hemos creado van a decir que el "Context" no está llegando por lo que queda Null y obviamente no va a poder realizar ninguna de las acciones (get, save, update, delete), entonces lo que debemos de hacer es ir a la clase "Program.cs" y configurar el Entity Framework y queda de la siguiente manera:
+Esto necesita como dependencia Entity Framework, pero dentro del "Program.cs" no tenemos esa configuración, por lo que tenemos un problema, los Servicios que hemos creado van a decir que el "Context" no está llegando por lo que queda Null y obviamente no va a poder realizar ninguna de las acciones (get, save, update, delete), entonces lo que debemos realizar es ir a la clase "Program.cs" y configurar el Entity Framework y queda de la siguiente manera:
 
 builder.Services.AddSqlServer<TareasContext>("");
 
 Entre <> va el Context.
 El ("") es el Conexion string para conectarnos a la base de datos.
 
+
+
 ¿Cómo podemos obtener el Conexion String?.
 
-Es importante entender cuál es la configuración que tiene nuestro servidor y para ello utilizaremos el "Microsoft SQL Server Management Studio", una vez abierto este SQL Management nos saldrá la ventana de la configuración donde aparecerá el Tipo de Servidor (debe estar en Database Engine), Server name (aparecerá el nombre de nuestro servidor), la Autenticación (debe estar en SQL Server Authentication), el Login y el Password que debieron ser creadas al principio al momento de realizar la configuración inicial.
+Es importante entender cuál es la configuración que tiene nuestro servidor y para ello utilizaremos el "Microsoft SQL Server Management Studio", una vez abierto el SQL Management nos saldrá la ventana de la configuración donde aparecerá el Tipo de Servidor (debe estar en Database Engine), Server name (aparecerá el nombre de nuestro servidor), la Autenticación (debe estar en SQL Server Authentication), el Login y el Password que debieron ser creadas al principio al momento de realizar la configuración inicial.
 
 Copiamos el Nombre del Servidor. Si tenemos el caracter \ nos va a saltar un error en C# pero para solucionar esto simplemente debemos agregar una contrabarra más y listo, quedando de la siguiente manera: \\
 
-la estructura es la siguiente:
+
+
+La estructura es la siguiente:
 
 "Data Source=AquiVaElNombreDelServidor;Initial Catalog=AquiVaElNombreDeLaBaseDeDatos;user id=AquiVaNuestroLogin;password=AquiVaNuestroPassword"
 
@@ -1395,7 +1479,7 @@ Una vez hecho esto ejecutamos dotnet run desde la Terminal en VSCode.
 Ahora nos dirigimos a Postman a realizar la ejecución y luego a SQL Management a verificar que verdaderamente la Base de Datos se haya creado correctamente.
 
 
-Al ejecutar el GET desde Postman por ejemplo con el Endpoint "https://localhost:7182/api/Categoria" nos podría salir el error de no tener acceso a la Base de Datos "TareasDb", y esta base de datos aún no está creada dentro de SQL Server, lo que vamos a realizar es agregar una porción de código que nos permita verificar que la base de datos ha sido creada antes de ejecutar cualquier otro comando u otra acción dentro de la base de datos.
+Al ejecutar el GET desde Postman por ejemplo con el Endpoint "https://localhost:7182/api/Categoria" nos podría salir el error de no tener acceso a la Base de Datos "TareasDb", y esta Base de Datos aún no está creada dentro de SQL Server, lo que vamos a realizar es agregar una porción de código que nos permita verificar que la Base de Datos ha sido creada antes de ejecutar cualquier otro comando u otra acción dentro de la Base de Datos.
 
 
 Frente a este inconveniente realizo un Commit para separar el antes y el después.
@@ -1405,10 +1489,10 @@ Frente a este inconveniente realizo un Commit para separar el antes y el despué
 
 En esta segunda parte, para resolver lo anterior, manipulamos la clase "HelloWorlsControllers.cs" agregandole un:
 TareasContext dbcontext;
-y recibiendolo por el Constructor.
+y recibiéndolo por el Constructor.
 
 
-También creamos el método "CreateDataBase()" para verificar la base de datos se cree correctamente.
+También creamos el método "CreateDataBase()" para verificar que la Base de Datos se cree correctamente.
 
 
 Una vez realizado estos procedimientos, ejecutamos dotnet run desde la Terminal y comprobamos de que todo esté funcionando correctamente.
@@ -1418,36 +1502,37 @@ Una vez realizado estos procedimientos, ejecutamos dotnet run desde la Terminal 
 Luego nos dirigimos nuevamente a Postman, vamos a ejecutar desde el GET "https://localhost:7182/api/helloworld/createdb" que es el método que creamos dentro del Controlador de HelloWorld (HelloWorldController.cs).
 
 
-Debería devolvernos Ok y crear la base de datos y creó la información que por defecto debería tener.
+Debería devolvernos Ok y crear la Base de Datos con la información que por defecto debería tener (las que agregamos en el código).
 
 
 Ahora podemos probar nuevamente el endpoint "https://localhost:7182/api/Categoria" en el método GET y debería devolvernos la información que se encuentra en la tabla de Categoria.
 
 
 
-Para realizar un POST, debemos utilizar el mismo Endpoint luego le damos click en Body luego en raw y elegir que lo vamos a cargar en formato JSON.
+Para realizar un POST, debemos utilizar el mismo Endpoint luego le damos click en "Body" luego en "raw" y elegir que lo vamos a cargar en formato "JSON".
 
 Copiamos la estructura que nos devolvió el método de GET anteriormente, para no tener que realizarlo desde cero, borramos el id ya que no es necesario, y llenamos los campos de nombre descripcion y peso.
-Luego realizamos la ejecución del POST dandole click a Send, debería devolvernos un Ok informandonos que los datos fueron cargados exitosamente.
+
+Luego realizamos la ejecución del POST dándole click a "Send", debería devolvernos un Ok informándonos que los datos fueron cargados exitosamente.
 
 
 Al ejecutar el GET debería devolvernos todos los datos de la Categoria incluyendo la que acabamos de agregar mediante el POST.
 
 
 
-Ahora podríamos ir a SQL Management para poder asegurarnos de que la base de datos fué creada exitosamente.
+Ahora podríamos ir a SQL Management para asegurarnos de que la Base de Datos fué creada exitosamente.
 
-En Tables podremos ver que estan las dos tablas, la de Categoria y la de Tarea, y dentro de estas cada una de las columnas que habíamos establecido en VSCode.
+En "Tables" podemos observar que se encuentran las dos tablas, la de "Categoria" y la de "Tarea", y dentro de estas cada una de las columnas que habíamos establecido en VSCode.
 
 Si le damos click derecho sobre la tabla de "Categoria" y click izquierdo a "Select Top 1000 Rows" debería aparecernos los mismos datos que obtuvimos en Postman al realizar el GET.
 
 
 
 
-De esta manera podemos crear una "Arquitectura por Capas" asignando diferentes responsabilidades utilizando "Inyección de Dependencias" y las mejores prácticas para construír nuestra API y fácilmente poder exponer utilizando los Controladores todos los Endpoints que queremos que el usuario pueda consumir para interactuar con los datos, en este caso los datos de nuestra base de datos con Categorías y Tareas.
+De esta manera podemos crear una "Arquitectura por Capas" asignando diferentes responsabilidades utilizando "Inyección de Dependencias" y las mejores prácticas para construír nuestra API y fácilmente poder exponer utilizando los Controladores todos los Endpoints que queremos que el usuario pueda consumir para interactuar con los datos, en este caso los datos de nuestra Base de Datos con Categorías y Tareas.
 
 
-Con esto finalizamos con implementación de nuestra API, que se asemeja mucho a lo que sería un proyecto real.
+Con esto finalizamos con la implementación de nuestra API, que se asemeja mucho a lo que sería un proyecto real.
 
 
 
@@ -1476,73 +1561,13 @@ Con esto finalizamos con implementación de nuestra API, que se asemeja mucho a 
 
 Hemos completado con éxito el curso de APIs con .NET.
 
-Aprendimos qué es una API, qué es el patrón REST, y luego empezamos a indagar dentro del template de WEBAPI que viene por defecto en .NET, vimos temas de arquitectura, el Logging, la inyección de dependencias, cómo funciona Swagger que ya viene por defecto en el template WebApi, también analizamos el concepto de Middlewares dentro de .NET el cual es la base para todo el procesamiento de todos los Request que se realicen dentro de nuestra API, también construímos un Middleware personalizado que nos ayudó a entender cómo funciona internamente este tipo de componente dentro de una API con .NET.
+Aprendimos qué es una API, qué es el patrón REST, y luego empezamos a indagar dentro del template de WEBAPI que viene por defecto en .NET, vimos temas de Arquitectura, el Logging, la inyección de dependencias, cómo funciona Swagger que ya viene por defecto en el template WebApi, también analizamos el concepto de Middlewares dentro de .NET el cual es la base para todo el procesamiento de todos los Request que se realicen dentro de nuestra API, también construímos un Middleware personalizado que nos ayudó a entender cómo funciona internamente este tipo de componente dentro de una API con .NET.
 
 Al final del curso utilizamos todos los conocimientos que adquirimos de principio a fin para crear una API que se asemeja un poco más a un proyecto real.
 
 Reutilizamos modelos de Categorías y Tareas, realizamos una configuración de Entity Framework como base. Luego creamos los Servicios y los Controladores para exponer los diferentes métodos y acciones que queríamos ejecutar sobre estos modelos.
 
-Finalmente luego de realizar toda esta configuración, conectamos nuestro proyecto a una base de datos real. Esto nos permitió poder comprobar efectivamente toda la lógica que habíamos construído alrededor de estos métodos estuvieran funcionando correctamente con una base de datos real lo cual se asemeja mucho a lo que sería un proyecto laboral que podemos ejecutar con estos conocimientos que hemos adquirido en este curso.
+Finalmente luego de realizar toda esta configuración, conectamos nuestro proyecto a una Base de Datos real. Esto nos permitió poder comprobar efectivamente toda la lógica que habíamos construído alrededor de estos métodos, y que estuvieran funcionando correctamente con una Base de Datos real lo cual se asemeja mucho a lo que sería un proyecto laboral que podemos ejecutar con estos conocimientos que hemos adquirido en este curso.
 
 
-Queda pendiente muchos temas referentes a los APIs, como por ejemplo el de Seguridad, con Cores, con Json Web Toquens, buenas prácticas en algunos otros escenarios, conectar al API a otras APIs, estos temas y demás las podemos consultar en la documentación oficial de Microsoft en donde hay diferentes Demos que podemos ejecutar. 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Queda pendiente muchos temas referentes a los APIs, como por ejemplo el de Seguridad, con Cores, con Json Web Tokens, buenas prácticas en algunos otros escenarios, conectar al API a otras APIs, estos temas y demás las podemos consultar en la documentación oficial de Microsoft en donde hay diferentes Demos que podemos ejecutar. 

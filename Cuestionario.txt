@@ -1,0 +1,58 @@
+1 - ¿Cuál es el concepto que utiliza internamente el template de API de .NET para su funcionamiento?.
+
+El concepto que utiliza internamente el template de API de .NET para su funcionamiento es el patrón de REST.
+
+
+
+2 - Mencione los 4 aspectos vistos de las arquitecturas dentro de las APIs.
+
+Los 4 aspectos vistos de las arquitecturas dentro de las APIs son los siguientes:
+
+- Logging.
+- Inyección de Dependencia.
+- Swagger.
+- Middleware.
+
+
+
+3 - Observe los 4 aspectos mencionados en el ítem anterior: ¿Cuál de todos ellos son las bases del funcionamiento de las APIs con .NET?.
+
+Los Middlewares son las bases del funcionamiento de las APIs con .NET.
+
+
+
+4 - ¿Qué es Entity Framework y para qué la hemos utilizado?.
+
+Entity Framework es una librería. La hemos utilizado para conectarnos a una Base de Datos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
