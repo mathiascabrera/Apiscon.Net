@@ -286,18 +286,83 @@ También reciben el nombre "HTTP Request". Hacen referencia a los HTTP Verbs ant
 
 
 
+32 - Expliqué qué es y qué significan las siglas MVC.
+
+Las siglas MVC significan "Model View Controller".
+
+Model = Datos.
+
+View = Interfaz de usuario.
+
+Controller = Lógica
+
+El MVC es un modelo Arquitectónico Modelo Vista Controlador.
+
+Este modelo nos permite separar las responsabilidades en nuestro proyecto.
+
+La idea es crear "Modelos", que son Clases en la POO, que nos permitan almacenar los datos que nosotros en ese momento estemos manejando o que el usuario esré visualizando en ese momento a través de la view.
+
+La "View" es la interfaz de la aplicación la cual permite comunicarse con el usuario.
+
+En cuanto al "Controller", es aquel que maneja toda la lógica que se pueda presentar dentro de la interacción del usuario con la vista, por ejemplo al hacer click en el botón de "Guardar", cada una de las interacciones serán manejadas por los controladores.
 
 
 
+33 - El template WEBAPI ¿Utiliza el MVC?.
+
+El template WebAPI no utiliza la view, por lo que pasamos de MVC a MC: MODEL (para almacenar los datos) y CONTROLLER (para manejar la lógica).
 
 
 
+34 - ¿Las APIs utilizan interaces de usuario?.
+
+Las APIs no emplean interfaces de usuario, simplemente son una capa abstracta que permite que interactuemos con ella a través del patrón REST.
 
 
 
+35 - Mencione si las siguientes afirmaciones son verdaderas o falsas (en caso de ser falsa justifique su elección):
+
+"Todos los Controladores deben almacenarse en la carpeta Controllers".
+
+RESPUESTA = VERDADERO.
+
+
+"Cada Modelo creado debe tener su propio Controlador".
+
+RESPUESTA = VERDADERO.
+
+
+"Los Controladores pueden poseer cualquier nombre".
+
+RESPUESTA = FALSO.
+
+JUSTIFICACIÓN = Los nombres de los Controladores deben identificar al Modelo que controla y además finalizar con la palabra "Controller". Por ejemplo en el código tenemos el Modelo "WeatherForecast.cs" y su Controlador es "WeatherForecastController.cs".
 
 
 
+"Los Controladores deben heredar de "ControllerBase".
+
+RESPUESTA = VERDADERO.
 
 
 
+"El 'TargetFramework' define la versión del framework.
+
+RESPUESTA = VERDADERO.
+
+
+
+"'Program.cs' es el archivo que posee toda la configuración del proyecto y la forma en la que se va a ejecutar.
+
+RESPUESTA = VERDADERO.
+
+
+
+"En "appsettings.Development.json" se almacena la conexion a una base de datos, contraseñas, tockens de acceso para servicios en la nube, etc."
+
+RESPUESTA = VERDADERO.
+
+
+"El archivo "launchSettings.json" contiene cómo se va a ejecutar la API."
+
+RESPUESTA = VERDADERO.
