@@ -231,3 +231,73 @@ Al ejecutar el comando dotnet new webapi API permite la creación de la plantill
 23 - Se desea abrir, desde la consola, un proyecto en VSCode: ¿Qué comando permite realizar esta acción?.
 
 El comando que permite abrir un proyecto en VSCode, desde la consola, es "code".
+
+
+
+24 - ¿Qué uso se le dió a Postman a lo largo del curso?.
+
+A lo largo del curso hemos utilizado Postman para probar las APIs, en otras palabras para realizar las peticiones.
+
+
+
+25 - ¿Qué sucede al ejecutar el comando dotnet run?.
+
+Al ejecutar el comando "dotnet run" se ejecuta el proyecto en el directorio actual.
+
+
+
+26 - Según lo visto: ¿Qué significa que al realizar una petición retorne "404 Not Found"?.
+
+Según lo visto, si al realizar una petición retorna "404 Not Found", podría deberse a que la ruta al a que queremos acceder no posee ningún contenido o no posee ninguna acción dentro de la API.
+
+
+
+27 - ¿Cómo se determina la ruta para consumir un Endpoint?.
+
+Para determinar la ruta con la que se va a consumir un Endpoint utilizamos la instrucción "Route".
+
+
+
+28 - ¿A qué se le denomina como "Endpoints"?. Ejemplifique.
+
+Un Endpoint es la dirección URL específica de un recurso en la API.
+
+Por ejemplo, https://api.mitienda.com/productos sería un endpoint para obtener información de los productos en una tienda en línea.
+
+
+
+29 - La siguiente porción de código: [Route("[controller]")] ¿Es una ruta dinámica?. ¿Porqué?.
+
+La porción de código [Route("[controller]")] define una ruta dinámica, ya que recibe el mismo nombre del Controlador. Si cambia el nombre del Controlador, entonces también la ruta cambiará, pasará a tener el mismo nombre que recibió el Controlador.
+
+
+
+30 - ¿Qué se aloja en la carpeta "Controllers"?.
+
+En la carpeta "Controllers" se alamacenan todas aquellas clases que manejan los Request dentro de la API.
+
+
+
+31 - ¿A qué se denomina Request?.
+
+Se le llama Request a la solicitud que un Cliente envía al servidor para obtener o modificar datos en una API REST.
+
+También reciben el nombre "HTTP Request". Hacen referencia a los HTTP Verbs anteriormente mencionados.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
