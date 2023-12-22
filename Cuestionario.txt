@@ -82,19 +82,125 @@ Es bastante común en aplicaciones modernas que podamos usar nuestra cuenta de G
 
 
 
+11 - ¿Qué significan las siglas REST?.
+
+Las siglas REST proviene de "Representational state transfer", y traducido es “transferencia de representación de estado”.
+
+
+Para mayor información :
+https://desarrolloweb.com/articulos/que-es-rest-caracteristicas-sistemas.html
 
 
 
+12 - Mencione las características dadas del patrón REST.
+
+- Estilo de arquitectura para el diseño de interfaces web.
+
+- Permite el manejo de recursos desde el lado del servidor.
+
+- Contiene las siguientes propiedades:
+ ° Rendimiento
+ ° Escalabilidad 
+ ° Simplicidad
+ ° Confiabilidad
 
 
 
+13 - Las APIs REST: ¿Deben ser descargadas en nuestro ordenador?.
+
+Tanto las APIs como REST no son tecnologías que debamos descargar en nuestro ordenador. Éstas son solo conceptos teóricos que debemos aplicar al momento en el que estemos escribiendo o estructurando nuestro proyecto.
 
 
 
+14 - Mencione si las siguientes afirmaciones son verdaderas o falsas (en caso de ser falsa justifique su elección):
+
+"El Patrón REST se aplica a la mayoría de APIs que se construyen actualmente".
+
+RESPUESTA : VERDADERO.
 
 
 
+"Una de las reglas de REST es utilizar verbos al momento de realizar un llamado HTTP para indicar a la API cuál es la acción que necesitamos ejecutar".
 
+RESPUESTA : VERDADERO.
+
+
+
+"Utilizamos PUT para realizar modificaciones parciales en un recurso"
+
+RESPUESTA : FALSO.
+
+JUSTIFICACIÓN : Utilizamos el método PUT para realizar modificaciones totales, no parciales. Para las modificaciones parciales se utiliza el verbo PATCH.
+
+
+
+"Los servicios web API REST son capaces de realizar las operaciones típicas de un CRUD".
+
+RESPUESTA : VERDADERO.
+
+
+
+"Una de las reglas de REST es manejar una URL por cada recurso que tengamos en la base de datos." 
+
+RESPUESTA : VERDADERO.
+
+
+
+15 - Mencione los HTTP Verbs.
+
+Los HTTP Verbs son los siguientes:
+
+- GET    = Permite Obtener y leer recursos/datos.
+
+- POST   = Permite la Inserción de recursos/datos.
+
+- PUT    = Permite realizar modificaciones. Actualiza un registro.
+
+- PATCH  = Permite realizar modificaciones parciales en un registro.
+
+- DELETE = Permite eliminar un recurso dado.
+
+
+
+16 - La URL de un recurso: ¿Qué nos permite?. ¿Puede ser dinámica la URL?. ¿Se utiliza la misma URL para ejecutar los métodos HTTP?.
+
+La URL de un recurso nos permite realizar acciones que deseemos con el recurso en cuestión.
+
+La URL de un recurso no puede ser dinámica, no puede cambiar, y además debe indicar cuál es el recurso al que estamos accediendo. 
+
+Sí, se utiliza la misma URL para ejecutar cada uno de los HTTP Verbs.
+
+
+
+17 - Mencione las Respuestas HTTP vistas.
+
+Las respuestas Http vistas son las siguientes :
+
+- Respuestas Informátivas (100 - 199).
+
+- Respuestas Satisfactorias (200 - 299).
+
+- Redirecciones (300 - 399).
+
+- Errores de los clientes (400 - 499).
+
+- Errores de los servidores (500 - 599).
+
+
+
+18 - Según lo aprendido: ¿Cuáles son las respuestas HTTP más utilizadas?.
+
+Las respuestas HTTP más utilizadas son las siguientes:
+
+- 500  Internal Error.
+
+- 200  Ok (código exitoso).
+
+- 404  Not found (recurso no encontrado).
+
+- 201  Created (recurso creado).
+
+- 204  No content (no hay contenido retornado).
 
 
 
