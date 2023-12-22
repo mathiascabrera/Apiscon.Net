@@ -204,22 +204,30 @@ Las respuestas HTTP más utilizadas son las siguientes:
 
 
 
+19 - ¿Qué sucede al ejecutar el comando dotnet new?.
+
+El comando dotnet new crea un proyecto de .NET basado en una plantilla.
 
 
 
+20 - ¿Qué sucede al ejecutar el comando dotnet new --list?.
+
+El comando dotnet new --list nos permite visualizar el listado de todas las planillas.
 
 
 
+21 - Según lo visto, ¿Cuál es el template clásico y el más completo?.
+
+Según lo visto, el template clásico y el más completo es el "WebAPI".
 
 
 
+22 - ¿Qué sucede al ejecutar el comando dotnet new webapi?.
+
+Al ejecutar el comando dotnet new webapi API permite la creación de la plantilla web de ASP.NET Core.
 
 
 
+23 - Se desea abrir, desde la consola, un proyecto en VSCode: ¿Qué comando permite realizar esta acción?.
 
-
-
-
-
-
-
+El comando que permite abrir un proyecto en VSCode, desde la consola, es "code".
